@@ -10,9 +10,9 @@
 </template>
 
 <script>
-    export default {
-        name: 'tools-tech'
-    }
+export default {
+    name: 'tools-tech'
+}
 </script>
 
 <style lang="scss">
@@ -21,13 +21,10 @@
     top: 61vh;
     left: 18%;
     max-width: 76vw;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: clamp(13.2px, min(3.55vw, 3.55vh), 15px);
-    >p {
+    > p {
         margin: 0;
     }
-    // >h1 {
-    //     font-size: 2.3em;
-    // }
 }
 </style>

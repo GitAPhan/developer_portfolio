@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="footer">
         <h1>footer</h1>
     </div>
 </template>
@@ -11,5 +11,7 @@
 </script>
 
 <style>
-
+.footer {
+    height: 100vh;
+}
 </style>

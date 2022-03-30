@@ -5,8 +5,9 @@ Vue.use(Vuetify);
 
 const vuetify = new Vuetify({
     theme: {
+        dark: true,
         themes: {
-            light: {
+            dark: {
                 primary: '#464545',
                 secondary: '#D6CFCF',
                 anchor: '#c4c4c4',

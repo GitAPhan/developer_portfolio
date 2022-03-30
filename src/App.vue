@@ -24,7 +24,10 @@ export default {
     LogoRight,
     ProjectSection,
     AboutMe,
-  }
+  },
+  mounted () {
+    console.log('please!!!!');
+  },
 };
 
 </script>
