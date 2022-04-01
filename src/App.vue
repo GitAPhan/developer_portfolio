@@ -5,13 +5,13 @@
       <about-me class="main" />
       <logo-right class="logo" />
       <project-section class="main" />
-      <!-- <footer-section class="main" /> -->
+      <Contact-section class="main" />
     </v-main>
   </v-app>
 </template>
 
 <script>
-// import FooterSection from '@/components/FooterSection.vue';
+import ContactSection from '@/components/ContactSection.vue';
 import LogoRight from '@/components/LogoRight.vue';
 import LogoLeft from '@/components/LogoLeft.vue';
 import ProjectSection from '@/components/ProjectSection.vue';
@@ -19,7 +19,7 @@ import AboutMe from '@/components/AboutMe.vue';
 
 export default {
   components: {
-    // FooterSection,
+    ContactSection,
     LogoLeft,
     LogoRight,
     ProjectSection,

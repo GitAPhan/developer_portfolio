@@ -1,6 +1,6 @@
 <template>
     <div class="about_me_container">
-        <section class="about_me">
+        <section class="more_me">
             <h1>We immerse ourselves from the ROOTS to make every digital project happen from start to finish.</h1>
             <p>We put the people in the center of everything we do with one goal in mind: create value for our clients. Every project has specific needs, and we identify and adapt to them, guiding and collaborating with clients throughout the design process.</p>
         </section>
@@ -9,12 +9,12 @@
 
 <script>
 export default {
-    name: 'about-me',
+    name: 'more-me',
 }
 </script>
 
 <style>
-.about_me {
+.more_me {
     display: grid;
     color: var(--v-primary);
     width: 80%;
