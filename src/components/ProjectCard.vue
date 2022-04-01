@@ -10,12 +10,17 @@
             >
                 <h2>{{ project1.name }}</h2>
                 <h4>{{ project1.tech }}</h4>
-                <h6>{{ project1.description }}</h6>
+                <p>{{ project1.description }}</p>
                 <img :src="project1.screenshot" />
                 <v-card-actions class="pa-0">
                     <v-btn color="secondary" :href="project1.github_link" text>github</v-btn>
-
-                    <v-btn color="secondary" :href="project1.live_link" text>demo</v-btn>
+                    <!-- live link button to only be present if value is not undefined -->
+                    <v-btn
+                        v-if="project1.live_link != undefined"
+                        color="secondary"
+                        :href="project1.live_link"
+                        text
+                    >demo</v-btn>
                 </v-card-actions>
             </v-sheet>
         </v-scale-transition>
@@ -34,7 +39,12 @@
                 <v-card-actions class="pa-0">
                     <v-btn color="secondary" :href="project2.github_link" text>github</v-btn>
 
-                    <v-btn color="secondary" :href="project2.live_link" text>demo</v-btn>
+                    <v-btn
+                        v-if="project2.live_link != undefined"
+                        color="secondary"
+                        :href="project2.live_link"
+                        text
+                    >demo</v-btn>
                 </v-card-actions>
             </v-sheet>
         </v-scale-transition>
@@ -79,6 +89,13 @@ export default {
     padding: 15px;
     > img {
         width: 100%;
+        max-width: 450px;
     }
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.project_card::-webkit-scrollbar {
+    display: none;
 }
 </style>

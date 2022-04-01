@@ -13,18 +13,31 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .about_me {
     display: grid;
     color: var(--v-primary);
-    width: 80%;
-    height: 100%;
     row-gap: 10px;
+    font-size: .8em;
+    max-width: 450px;
+    >p:nth-child(2) {
+        margin-bottom: 0px;
+    }
 }
 .about_me_container {
     display: grid;
     place-items: center;
     background-color: var(--v-secondary);
     padding: 10%;
+}
+@media screen and (min-width: 1000px){
+    .about_me {
+        color: var(--v-secondary);
+        font-size: 1.4em;
+    }
+    .about_me_container {
+        height: 100vh;
+        background-color: var(--v-primary);
+    }
 }
 </style>

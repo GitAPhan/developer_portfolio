@@ -15,16 +15,21 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .tools_n_tech {
     position: relative;
     top: 61vh;
-    left: 18%;
+    left: min(18%, 75px);
     max-width: 76vw;
     color: #ffffff;
-    font-size: clamp(13.2px, min(3.55vw, 3.55vh), 15px);
+    font-size: clamp(13.2px, min(3.55vw, 3.55vh), 14.5px);
     > p {
         margin: 0;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .tools_n_tech {
+        left: min(17%, 125px)
     }
 }
 </style>

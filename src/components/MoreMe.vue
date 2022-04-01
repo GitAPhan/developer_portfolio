@@ -13,13 +13,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .more_me {
     display: grid;
     color: var(--v-primary);
-    width: 80%;
-    height: 100%;
     row-gap: 10px;
+    font-size: .8em;
+    max-width: 450px;
+    >p:nth-child(2) {
+        margin-bottom: 0px;
+    }
 }
 .about_me_container {
     display: grid;

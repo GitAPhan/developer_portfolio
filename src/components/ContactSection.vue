@@ -8,7 +8,7 @@
         <!-- summary 'about-me' -->
         <more-me />
         <!-- contact info -->
-        <section>
+        <section class="contact_me">
             <h3>github:</h3>
             <a href="https://github.com/GitAPhan">github.com/GitAPhan</a>
             <h3>linkedin:</h3>
@@ -45,6 +45,13 @@ export default {
     img {
         max-width: 40vw;
     }
+}
+.contact_me {
+    place-self: center;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 3fr;
+    padding: 15px;
 }
 .soft_skills {
     display: grid;

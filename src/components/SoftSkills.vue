@@ -20,32 +20,33 @@ export default {
 
 <style lang="scss" scoped>
 .soft_skills {
+    width: 53%;
     :nth-child(1) {
-        width: 72%;
+        width: 100%;
     }
     :nth-child(2) {
-        width: 67%;
+        width: 95%;
     }
     :nth-child(3) {
-        width: 62%;
+        width: 90%;
     }
     :nth-child(4) {
-        width: 57%;
+        width: 85%;
     }
     :nth-child(5) {
-        width: 52%;
+        width: 80%;
     }
     :nth-child(6) {
-        width: 47%;
+        width: 75%;
     }
     :nth-child(7) {
-        width: 42%;
+        width: 70%;
     }
     :nth-child(8) {
-        width: 37%;
+        width: 65%;
     }
     :nth-child(9) {
-        width: 32%;
+        width: 60%;
     }
 }
 </style>

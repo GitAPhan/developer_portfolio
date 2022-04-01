@@ -1,11 +1,12 @@
 <template>
   <v-app :style="cssProps">
     <v-main>
-      <logo-left class="logo" />
-      <about-me class="main" />
-      <logo-right class="logo" />
-      <project-section class="main" />
-      <Contact-section class="main" />
+      <div id="main">
+        <logo-left />
+        <logo-right />
+        <project-section class="main" />
+        <Contact-section class="main" />
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -15,7 +16,6 @@ import ContactSection from '@/components/ContactSection.vue';
 import LogoRight from '@/components/LogoRight.vue';
 import LogoLeft from '@/components/LogoLeft.vue';
 import ProjectSection from '@/components/ProjectSection.vue';
-import AboutMe from '@/components/AboutMe.vue';
 
 export default {
   components: {
@@ -23,10 +23,6 @@ export default {
     LogoLeft,
     LogoRight,
     ProjectSection,
-    AboutMe,
-  },
-  mounted() {
-    console.log('please!!!!');
   },
   computed: {
     cssProps() {
@@ -47,21 +43,23 @@ export default {
   margin: 0px;
 }
 #app {
-  display: grid;
-  place-items: center;
   background-color: var(--v-primary);
   max-width: 100vw;
-  /* overflow-x: hidden; */
+  display: grid;
 }
+/* logo-left & logo-right */
 .logo {
   height: 100vh;
   background-repeat: no-repeat;
   background-size: auto 70%;
   width: 100%;
-  max-width: 100vw;
 }
-.main {
-  max-width: 100vw;
-  width: 100%;
+@media screen and (min-width: 1000px) {
+  #main {
+    position: relative;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+  }
 }
 </style>
