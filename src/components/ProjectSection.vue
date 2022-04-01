@@ -2,21 +2,29 @@
     <div class="projects">
         <h1 @click="model_value">Projects:</h1>
         <project-card class="highlighted_project" v-if="model != null" :project="project_view" />
-        <v-sheet color="anchor" class="mx-auto" elevation="8" width="100vw">
-            <v-slide-group v-model="model" class="pa-4" mandatory show-arrows>
+        <v-sheet color="primary" elevation="8" width="100vw">
+            <v-slide-group v-model="model" mandatory show-arrows>
                 <v-slide-item
                     v-for="project in projects"
                     :key="project.id"
                     v-slot="{ active, toggle }"
                 >
                     <v-card
-                        :color="active ? 'primary' : 'secondary'"
-                        class="ma-4"
+                        :color="active ? 'anchor' : 'secondary'"
+                        class="ma-1 d-flex align-center justify-center"
                         height="100px"
                         width="150px"
                         hover
                         @click="toggle"
                     >
+                        <v-img
+                            v-if="!active"
+                            class="white--text"
+                            width="100%"
+                            :src="project.screenshot"
+                        >
+                            <v-card-title class="project_card_title">{{ project.name }}</v-card-title>
+                        </v-img>
                         <v-scale-transition>
                             <v-icon
                                 v-if="active"
@@ -92,11 +100,13 @@ export default {
 
 <style lang="scss">
 .projects {
+    background-color: #d6cfcf;
     position: relative;
     place-items: center;
     height: 100vh;
     display: grid;
-    grid-template-rows: 55px 1fr 194px;
+    padding: 10px 0px;
+    grid-template-rows: auto 1fr auto;
     > h1 {
         justify-self: start;
         margin: 0px 5%;
@@ -107,7 +117,11 @@ export default {
     display: grid;
 }
 .highlighted_project {
+    position: relative;
     height: 100%;
     width: 90%;
+}
+.project_card_title {
+    font-size: 0.6em;
 }
 </style>
