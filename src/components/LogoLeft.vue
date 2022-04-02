@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="left_logo">
         <section class="logo main_left">
             <hero-message class="hero" />
-            <v-avatar class="profile_avatar" size="110">
+            <v-avatar class="profile_avatar" :size="avatar_size">
                 <img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" />
             </v-avatar>
         </section>
@@ -22,6 +22,17 @@ export default {
     computed: {
         view_width() {
             return window.innerWidth 
+        },
+        avatar_size() {
+            if (this.view_width > 1400) {
+                return 180
+            } else if (this.view_width >= 1000) {
+                return 128
+            } else if (this.view_width >= 500) {
+                return 110
+            } else {
+                return 95
+            }
         }
     },
 }
@@ -34,15 +45,34 @@ export default {
 }
 .hero {
     position: relative;
-    top: 30vh;
-    left: 8%;
+    top: 35vh;
+    right:-8%;
     width: 50%;
     max-width: 250px;
     min-width: 160px;
 }
 .profile_avatar {
     position: relative;
-    left: 8%;
-    top: 30vh;
+    right: -8%;
+    top: 37vh;
+}
+@media screen and (min-width: 1000px) {
+    .left_logo {
+        position: relative;
+        height: 200vh;
+    }
+    .main_left {
+        position: sticky;
+        top: 0vh;
+        /* border: white 2px solid; */
+    }
+    .hero {
+        right: min(-90px, -20%);
+        max-width: 500px;
+    } 
+    .profile_avatar {
+        right: min(-90px, -20%);
+    }
+    
 }
 </style>

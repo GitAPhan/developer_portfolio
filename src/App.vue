@@ -4,25 +4,25 @@
       <div id="main">
         <logo-left />
         <logo-right />
-        <project-section class="main" />
-        <Contact-section class="main" />
+        <!-- <project-section class="main" /> -->
+        <!-- <Contact-section class="main" /> -->
       </div>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import ContactSection from '@/components/ContactSection.vue';
+// import ContactSection from '@/components/ContactSection.vue';
 import LogoRight from '@/components/LogoRight.vue';
 import LogoLeft from '@/components/LogoLeft.vue';
-import ProjectSection from '@/components/ProjectSection.vue';
+// import ProjectSection from '@/components/ProjectSection.vue';
 
 export default {
   components: {
-    ContactSection,
+    // ContactSection,
     LogoLeft,
     LogoRight,
-    ProjectSection,
+    // ProjectSection,
   },
   computed: {
     cssProps() {

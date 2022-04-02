@@ -15,20 +15,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.hero_message>img {
+    display: block;
+}
 .hero1 {
-    width: 100%;
+    width: 25vh;
 }
 .hero2 {
-    width: 90%;
+    width: 23.5vh;
 }
 .hero3 {
-    width: 76%;
+    width: 20vh;
 }
 .hero4 {
-    width: 70%;
+    width: 19vh;
 }
 .hero5 {
-    width: 66%;
+    width: 17.8vh;
 }
 </style>
