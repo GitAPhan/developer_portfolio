@@ -2,7 +2,13 @@
     <div class="projects">
         <h1 @click="model_value">Projects:</h1>
         <project-card class="highlighted_project" v-if="model != null" :project="project_view" />
-        <v-sheet class="d-flex justify-center" color="primary" elevation="8" width="100vw">
+        <v-sheet
+            class="d-flex justify-center"
+            v-if="view_width < 1000"
+            color="primary"
+            elevation="8"
+            width="100vw"
+        >
             <v-slide-group v-model="model" mandatory show-arrows>
                 <v-slide-item
                     v-for="project in projects"
@@ -23,7 +29,9 @@
                             width="100%"
                             :src="project.screenshot"
                         >
-                            <v-card-title class="justify-center project_card_title">{{ project.name }}</v-card-title>
+                            <v-card-title
+                                class="justify-center project_card_title"
+                            >{{ project.name }}</v-card-title>
                         </v-img>
                         <v-scale-transition>
                             <v-icon
@@ -37,13 +45,15 @@
                 </v-slide-item>
             </v-slide-group>
         </v-sheet>
+        <project-display v-else :projects="projects" />
     </div>
 </template>
 
 <script>
 import ProjectCard from './ProjectCard.vue'
+import ProjectDisplay from './ProjectDisplay.vue'
 export default {
-    components: { ProjectCard },
+    components: { ProjectCard, ProjectDisplay },
     name: 'project-section',
     data() {
         return {
@@ -62,7 +72,7 @@ export default {
                     "name": "project name2",
                     "tech": ["tech", "used", "here"],
                     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.",
-                    
+
                     "github_link": "https://github.com/",
                     "screenshot": "https://dummyimage.com/300x200/d6cfcf/464545.jpg?text=screenshot",
                 }, {
@@ -88,6 +98,9 @@ export default {
     computed: {
         project_view() {
             return this.projects[this.model]
+        },
+        view_width() {
+            return window.innerWidth
         }
     },
     methods: {
@@ -104,6 +117,7 @@ export default {
     position: relative;
     place-items: center;
     height: 100vh;
+    max-width: 100%;
     display: grid;
     padding: 10px 0px;
     grid-template-rows: auto 1fr auto;
@@ -113,9 +127,6 @@ export default {
     }
     row-gap: 10px;
 }
-.v-application .ma-4 {
-    display: grid;
-}
 .highlighted_project {
     position: relative;
     height: 100%;
@@ -123,5 +134,24 @@ export default {
 }
 .project_card_title {
     font-size: 1em;
+}
+@media screen and (min-width: 1000px) {
+    .projects {
+        background-color: var(--v-primary);
+        grid-template-rows: auto 1fr;
+        overflow-y: scroll;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        >h1 {
+            position: sticky;
+            padding: 5px;
+            margin: 0 3%;
+            top: 0;
+            background-color: var(--v-primary);
+        }
+    }
+    .projects::-webkit-scrollbar {
+        display: none;
+    }
 }
 </style>

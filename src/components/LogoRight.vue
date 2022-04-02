@@ -1,7 +1,10 @@
 <template>
     <div class="logo_right">
-        <about-me v-if="view_width >= 1000"/>
+        <about-me v-if="view_width >= 1000" />
         <section class="logo main_right">
+            <tools-tech v-if="view_width < 1000" />
+        </section>
+        <section v-if="view_width >= 1000" class="tech_text">
             <tools-tech />
         </section>
     </div>
@@ -15,7 +18,7 @@ export default {
     name: 'logo-right',
     computed: {
         view_width() {
-            return window.innerWidth 
+            return window.innerWidth
         }
     },
 }
@@ -25,10 +28,19 @@ export default {
 .main_right {
     background-image: url("../assets/logo_right.png");
     background-position: left;
+    scroll-snap-type: y proximity;
 }
 @media screen and (min-width: 1000px) {
     .logo_right {
-        height: 200vh;
+        height: 300vh;
+    }
+    .main_right {
+        position: sticky;
+        top: 0;
+    }
+    .tech_text {
+        position: relative;
+        height: 100vh;
     }
 }
 </style>

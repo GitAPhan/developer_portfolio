@@ -4,7 +4,7 @@
       <div id="main">
         <logo-left />
         <logo-right />
-        <!-- <project-section class="main" /> -->
+        <project-section class="container" v-if="view_width < 1000" />
         <!-- <Contact-section class="main" /> -->
       </div>
     </v-main>
@@ -15,14 +15,14 @@
 // import ContactSection from '@/components/ContactSection.vue';
 import LogoRight from '@/components/LogoRight.vue';
 import LogoLeft from '@/components/LogoLeft.vue';
-// import ProjectSection from '@/components/ProjectSection.vue';
+import ProjectSection from '@/components/ProjectSection.vue';
 
 export default {
   components: {
     // ContactSection,
     LogoLeft,
     LogoRight,
-    // ProjectSection,
+    ProjectSection,
   },
   computed: {
     cssProps() {
@@ -31,6 +31,9 @@ export default {
         themeColors[`--v-${color}`] = this.$vuetify.theme.themes.dark[color]
       })
       return themeColors
+    },
+    view_width() {
+      return window.innerWidth
     }
   }
 };
