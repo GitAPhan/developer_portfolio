@@ -2,13 +2,7 @@
     <div class="left_logo">
         <section class="logo main_left">
             <hero-message class="hero" />
-            <v-avatar v-if="view_width < 1000" class="profile_avatar" :size="avatar_size">
-                <img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" />
-            </v-avatar>
         </section>
-        <v-avatar v-if="view_width >= 1000" class="avatar" :size="avatar_size">
-            <img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" />
-        </v-avatar>
         <about-me v-if="view_width < 1000" />
         <project-section v-else />
     </div>
@@ -18,12 +12,14 @@
 import HeroMessage from "@/components/HeroMessage.vue"
 import AboutMe from "@/components/AboutMe.vue"
 import ProjectSection from "./ProjectSection.vue"
+// import SoftSkills from "./SoftSkills.vue"
 export default {
     name: 'logo-left',
     components: {
         HeroMessage,
         AboutMe,
-        ProjectSection
+        ProjectSection,
+        // SoftSkills,
     },
     computed: {
         view_width() {
@@ -58,11 +54,6 @@ export default {
     max-width: 250px;
     min-width: 160px;
 }
-.profile_avatar {
-    position: relative;
-    right: -8%;
-    top: 37vh;
-}
 @media screen and (min-width: 1000px) {
     .left_logo {
         position: relative;
@@ -77,10 +68,15 @@ export default {
         right: min(-90px, -20%);
         max-width: 500px;
     }
-    .avatar {
-        position: absolute;
-        top: -137vh;
+    .soft_skills {
+        top: 40vh;
+        position: relative;
         right: min(-90px, -20%);
+        display: grid;
+        grid-auto-flow: row;
+        justify-self: end;
+        row-gap: 0px;
+        width: 22%;
     }
 }
 </style>

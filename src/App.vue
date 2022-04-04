@@ -56,6 +56,7 @@ export default {
   background-repeat: no-repeat;
   background-size: auto 70%;
   width: 100%;
+  scroll-snap-type: y proximity;
 }
 @media screen and (min-width: 1000px) {
   #main {

@@ -2,7 +2,7 @@
     <div class="footer">
         <!-- soft skills and logo -->
         <section class="soft_logo">
-            <soft-skills class="soft_skills" />
+            <soft-skills v-if="view_width < 1000" />
             <img src="@/assets/logo_full.png" alt="AP logo" />
         </section>
         <!-- summary 'about-me' -->
@@ -53,10 +53,12 @@ export default {
     grid-template-columns: 1fr 3fr;
     padding: 15px;
 }
-.soft_skills {
-    display: grid;
-    grid-auto-flow: row;
-    justify-self: end;
-    row-gap: 0px;
+@media screen and (max-width: 1000px) {
+    .soft_skills {
+        display: grid;
+        grid-auto-flow: row;
+        justify-self: end;
+        row-gap: 0px;
+    }
 }
 </style>
