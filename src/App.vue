@@ -52,6 +52,7 @@ export default {
   background-color: var(--v-primary);
   max-width: 100vw;
   display: grid;
+  color: var(--v-text);
 }
 /* logo-left & logo-right */
 .logo {

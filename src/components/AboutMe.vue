@@ -13,10 +13,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .about_me {
     display: grid;
-    color: var(--v-primary);
+    color: var(--v-secondary);
     row-gap: 10px;
     font-size: .8em;
     max-width: 450px;
@@ -27,12 +27,11 @@ export default {
 .about_me_container {
     display: grid;
     place-items: center;
-    background-color: var(--v-secondary);
+    background-color: var(--v-accent);
     padding: 10%;
 }
 @media screen and (min-width: 1000px){
     .about_me {
-        color: var(--v-secondary);
         font-size: 1em;
     }
     .about_me_container {

@@ -1,7 +1,7 @@
 <template>
     <div class="projects">
         <h1 @click="model_value">Projects:</h1>
-        <project-card class="highlighted_project" v-if="model != null" :project="project_view" />
+        <project-carousel class="highlighted_project" v-if="model != null" :project="project_view" />
         <v-sheet
             class="d-flex justify-center"
             v-if="view_width < 1000"
@@ -16,7 +16,7 @@
                     v-slot="{ active, toggle }"
                 >
                     <v-card
-                        :color="active ? 'anchor' : 'secondary'"
+                        :color="'anchor'"
                         class="ma-1 d-flex align-center justify-center"
                         height="100px"
                         width="150px"
@@ -25,7 +25,7 @@
                     >
                         <v-img
                             v-if="!active"
-                            class="white--text"
+                            class="secondary--text"
                             width="100%"
                             :src="project.screenshot"
                         >
@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import ProjectCard from './ProjectCard.vue'
 import ProjectDisplay from './ProjectDisplay.vue'
+import ProjectCarousel from './ProjectCarousel.vue'
 export default {
-    components: { ProjectCard, ProjectDisplay },
+    components: { ProjectDisplay, ProjectCarousel },
     name: 'project-section',
     data() {
         return {
@@ -113,7 +113,7 @@ export default {
 
 <style lang="scss">
 .projects {
-    background-color: var(--v-secondary);
+    background-color: var(--v-accent);
     position: relative;
     place-items: center;
     height: 100vh;
