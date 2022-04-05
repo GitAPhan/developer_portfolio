@@ -1,7 +1,7 @@
 <template>
     <div class="logo_right">
         <about-me v-if="view_width >= 1000" />
-        <section class="logo main_right">
+        <section id="avatar_trigger" class="logo main_right">
             <tools-tech v-if="view_width < 1000" />
         </section>
         <section v-if="view_width >= 1000" class="tech_text">
@@ -32,14 +32,15 @@ export default {
 }
 @media screen and (min-width: 1000px) {
     .logo_right {
-        min-height: 300vh;
+        height: 300vh;
     }
     .main_right {
         position: sticky;
         top: 0;
     }
     .tech_text {
-        position: relative;
+        position: sticky;
+        top: 0;
         height: 100vh;
     }
 }

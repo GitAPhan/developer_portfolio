@@ -1,8 +1,9 @@
 <template>
     <div class="left_logo">
         <section class="logo main_left">
-            <hero-message class="hero" />
+            <hero-message />
         </section>
+        <soft-skills ref="soft_skills" v-if="view_width >= 1000" />
         <about-me v-if="view_width < 1000" />
         <project-section v-else />
     </div>
@@ -12,30 +13,32 @@
 import HeroMessage from "@/components/HeroMessage.vue"
 import AboutMe from "@/components/AboutMe.vue"
 import ProjectSection from "./ProjectSection.vue"
-// import SoftSkills from "./SoftSkills.vue"
+import SoftSkills from "./SoftSkills.vue"
 export default {
     name: 'logo-left',
     components: {
         HeroMessage,
         AboutMe,
         ProjectSection,
-        // SoftSkills,
+        SoftSkills,
+    },
+    data() {
+        return {
+            avatar_size: undefined
+        }
     },
     computed: {
         view_width() {
             return window.innerWidth
         },
+    },
+    watch: {
         avatar_size() {
-            if (this.view_width > 1400) {
-                return 180
-            } else if (this.view_width >= 1000) {
-                return 128
-            } else if (this.view_width >= 500) {
-                return 110
-            } else {
-                return 95
-            }
+            this.$refs.soft_skills.style.width = this.avatar_size 
         }
+    },
+    mounted () {
+        this.$root.$on('avatar_size', (size)=>{this.avatar_size = size});
     },
 }
 </script>
@@ -46,7 +49,7 @@ export default {
     background-position: right;
     scroll-snap-type: y proximity;
 }
-.hero {
+.hero_message {
     position: relative;
     top: 35vh;
     right: -8%;
@@ -69,13 +72,9 @@ export default {
         max-width: 500px;
     }
     .soft_skills {
-        top: 40vh;
-        position: relative;
-        right: min(-90px, -20%);
-        display: grid;
-        grid-auto-flow: row;
-        justify-self: end;
-        row-gap: 0px;
+        top: 164vh;
+        position: absolute;
+        left: min(64px, 20%);
         width: 22%;
     }
 }
