@@ -35,10 +35,12 @@ export default {
     watch: {
         avatar_size() {
             this.$refs.soft_skills.style.width = this.avatar_size 
+            console.log(this.$refs.soft_skills)
         }
     },
     mounted () {
-        this.$root.$on('avatar_size', (size)=>{this.avatar_size = size});
+        this.$root.$on('avatar_size', (size)=>{this.avatar_size = size
+        console.log(size)});
     },
 }
 </script>

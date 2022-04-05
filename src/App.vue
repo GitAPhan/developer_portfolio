@@ -35,7 +35,10 @@ export default {
     view_width() {
       return window.innerWidth
     }
-  }
+  },
+  mounted () {
+    console.log(this.$mq);
+  },
 };
 
 </script>
