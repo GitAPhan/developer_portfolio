@@ -26,7 +26,7 @@ export default {
 }
 @media screen and (min-width: 1000px) {
     .logo_right {
-        height: 350vh;
+        min-height: 400vh;
     }
     .main_right {
         position: sticky;

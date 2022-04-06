@@ -1,6 +1,6 @@
 <template>
     <div class="projects">
-        <h1 @click="model_value">Projects:</h1>
+        <h1 class="projects_title" @click="model_value">Projects:</h1>
         <project-carousel class="highlighted_project" v-if="model != null" :project="project_view" />
         <v-sheet
             class="d-flex justify-center"
@@ -51,6 +51,7 @@
 <script>
 import ProjectDisplay from './ProjectDisplay.vue'
 import ProjectCarousel from './ProjectCarousel.vue'
+import ScrollMagic from 'scrollmagic'
 export default {
     components: { ProjectDisplay, ProjectCarousel },
     name: 'project-section',
@@ -104,9 +105,20 @@ export default {
             // used to test changing theme 
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark
             console.log('changing theme')
-            console.log(this.$vuetify.theme)
         }
     },
+    mounted() {
+        var controller = new ScrollMagic.Controller();
+        // build scene only in lg screen mode
+        if (this.$mq === 'lg') {
+            new ScrollMagic.Scene({
+                triggerElement: '#hide',
+                triggerHook: 1,
+            })
+                .setClassToggle(".projects_title", "hide")
+                .addTo(controller);
+        }
+    }
 }
 </script>
 
@@ -142,19 +154,29 @@ export default {
     .projects {
         background-color: var(--v-primary);
         grid-template-rows: auto 1fr;
-        overflow-y: scroll;
+        // overflow-y: scroll;
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
         > h1 {
             position: sticky;
-            padding: 5px;
-            margin: 0 3%;
-            top: 0;
+            padding: 0px 5px 5px;
+            margin: 0;
+            top: 14.99vh;
+            justify-self: end;
             background-color: var(--v-primary);
         }
     }
     .projects::-webkit-scrollbar {
         display: none;
+    }
+    .projects_title {
+        opacity: 1;
+        transform: none;
+        transition: all 0.4s ease-out;
+    }
+    .projects_title.hide {
+        opacity: 0;
+        transform: translateX(-100px);
     }
 }
 </style>

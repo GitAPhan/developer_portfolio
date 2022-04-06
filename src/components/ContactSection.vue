@@ -1,9 +1,9 @@
 <template>
-    <div class="footer">
+    <div id="hide" class="footer">
         <!-- soft skills and logo -->
         <section class="soft_logo">
-            <soft-skills v-if="view_width < 1000" />
-            <img src="@/assets/logo_full.png" alt="AP logo" />
+            <soft-skills v-if="$mq != 'lg'" />
+            <img class="contact_logo" src="@/assets/logo_full.png" alt="AP logo" />
         </section>
         <!-- summary 'about-me' -->
         <more-me />

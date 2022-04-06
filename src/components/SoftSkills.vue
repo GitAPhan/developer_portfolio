@@ -37,7 +37,7 @@ export default {
 .skill {
     opacity: 0;
     transform: translateX(-40px);
-    transition: all 0.6s ease-out;
+    transition: all 0.6s ease-in-out;
 }
 .skill.visible {
     opacity: 1;

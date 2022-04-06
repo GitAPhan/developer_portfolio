@@ -28,9 +28,11 @@ export default {
         }
     },
     mounted() {
-        this.$root.$on('avatar_resize', this.resize_soft_skills);
+        if (this.$mq === 'lg') {
+            this.$root.$on('avatar_resize', this.resize_soft_skills);
+        }
     },
-}
+} 
 </script>
 
 <style>
@@ -49,12 +51,12 @@ export default {
 @media screen and (min-width: 1000px) {
     .left_logo {
         position: relative;
-        height: 350vh;
+        min-height: 400vh;
     }
     .main_left {
         position: sticky;
         top: 0vh;
-        height: 250vh;
+        height: 200vh;
         margin-bottom: 100vh;
     }
     .hero_message {
@@ -71,7 +73,7 @@ export default {
     /* also in ProjectSection */
     .projects {
         position: relative;
-        top: 50vh;
+        top: 60vh;
     }
 }
 </style>

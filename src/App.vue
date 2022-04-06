@@ -5,21 +5,21 @@
         <logo-left />
         <logo-right />
         <project-section v-if="$mq != 'lg'" />
-        <!-- <Contact-section class="main" /> -->
+        <Contact-section class="contact_section" />
       </div>
     </v-main>
   </v-app>
 </template>
 
 <script>
-// import ContactSection from '@/components/ContactSection.vue';
+import ContactSection from '@/components/ContactSection.vue';
 import LogoRight from '@/components/LogoRight.vue';
 import LogoLeft from '@/components/LogoLeft.vue';
 import ProjectSection from '@/components/ProjectSection.vue';
 
 export default {
   components: {
-    // ContactSection,
+    ContactSection,
     LogoLeft,
     LogoRight,
     ProjectSection,
@@ -69,6 +69,9 @@ export default {
     width: 100vw;
     display: grid;
     grid-template-columns: 50vw 50vw;
+  }
+  .contact_section {
+    grid-column: span 2;
   }
 }
 </style>

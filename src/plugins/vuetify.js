@@ -9,10 +9,10 @@ const vuetify = new Vuetify({
         themes: {
             dark: {
                 primary: '#464545',
-                text: '#ffffff',
+                text: '#f7f7f7',
                 accent: '#450303',
                 secondary: '#717070',
-                anchor: '#f7f7f7',
+                anchor: '#d6cfcf',
                 background: "#1f1f1f"
             },
             light: {
@@ -20,8 +20,8 @@ const vuetify = new Vuetify({
                 text: '#1f1f1f',
                 accent: '#450303',
                 secondary: '#a59e9e',
-                anchor: '#1f1e1e',
-                background: "#FFFFFF"
+                anchor: '#464545',
+                background: "#f7f7f7"
             }
         },
     },
