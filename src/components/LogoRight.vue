@@ -27,6 +27,7 @@ export default {
                 var controller = new ScrollMagic.Controller();
                 new ScrollMagic.Scene({
                     triggerElement: '#hide',
+                    offset: -320,
                     triggerHook: 1,
                 })
                     .setClassToggle(".quote", "hide")
@@ -44,7 +45,7 @@ export default {
 }
 @media screen and (min-width: 1000px) {
     .logo_right {
-        min-height: 400vh;
+        min-height: 475vh;
     }
     .main_right {
         position: sticky;

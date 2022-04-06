@@ -2,7 +2,7 @@
     <div>
         <article v-for="project in projects" :key="project.id">
             <v-sheet class="pa-6 d-flex justify-center align-center" color="primary">
-                <span v-if="project.id %2 === 0">
+                <!-- <span v-if="project.id %2 === 0">
                     <h2>{{ project.name }}</h2>
                     <h4>{{ project.tech }}</h4>
                     <p>{{ project.description }}</p>
@@ -11,7 +11,7 @@
                     <img :src="project.screenshot" />
                     <v-card-actions class="pa-0">
                         <v-btn color="secondary" :href="project.github_link" text>github</v-btn>
-                        <!-- live link button to only be present if value is not undefined -->
+                        live link button to only be present if value is not undefined
                         <v-btn
                             v-if="project.live_link != undefined"
                             color="secondary"
@@ -24,7 +24,40 @@
                     <h2>{{ project.name }}</h2>
                     <h4>{{ project.tech }}</h4>
                     <p>{{ project.description }}</p>
-                </span>
+                </span>-->
+                <v-card elevation="4" color="primary">
+                    <v-container>
+                        <v-row>
+                            <v-col>
+                                <v-card-title>{{ project.name }}</v-card-title>
+                                <v-img :src="project.screenshot" alt="website screenshot" />
+                                <v-card-actions>
+                                    <v-btn :href="project.github_link">
+                                        <v-icon>mdi-github</v-icon>
+                                    </v-btn>
+                                    <v-btn
+                                        v-if="project.live_link != undefined"
+                                        :href="project.live_link"
+                                    >
+                                        <v-icon>mdi-microsoft-xbox-controller-view</v-icon>
+                                    </v-btn>
+                                </v-card-actions>
+                            </v-col>
+                            <v-col>
+                                <v-card-subtitle class="d-flex">
+                                    <p
+                                        class="tech_chip"
+                                        v-for="tag in project.tech"
+                                        :key="tag + project.id"
+                                    >{{ tag }}</p>
+                                </v-card-subtitle>
+                                <v-card-text>
+                                    <p>{{ project.description }}</p>
+                                </v-card-text>
+                            </v-col>
+                        </v-row>
+                    </v-container>
+                </v-card>
             </v-sheet>
         </article>
     </div>
@@ -43,7 +76,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-img{
+img {
     width: 200px;
+}
+.tech_chip {
+    border: 2px var(--v-text) solid;
+    background-color: var(--v-anchor);
+    border-radius: 5px;
+    padding: 0px 5px;
+    margin-right: 5px;
+    color: var(--v-accent);
 }
 </style>

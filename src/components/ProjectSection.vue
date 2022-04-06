@@ -113,6 +113,7 @@ export default {
         if (this.$mq === 'lg') {
             new ScrollMagic.Scene({
                 triggerElement: '#hide',
+                offset: -400,
                 triggerHook: 1,
             })
                 .setClassToggle(".projects_title", "hide")
@@ -164,6 +165,7 @@ export default {
             top: 14.99vh;
             justify-self: end;
             background-color: var(--v-primary);
+            z-index: 10;
         }
     }
     .projects::-webkit-scrollbar {

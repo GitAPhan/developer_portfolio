@@ -51,7 +51,7 @@ export default {
 @media screen and (min-width: 1000px) {
     .left_logo {
         position: relative;
-        min-height: 400vh;
+        min-height: 475vh;
     }
     .main_left {
         position: sticky;
