@@ -176,7 +176,7 @@ export default {
     }
     .projects_title.hide {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translate(100px, -100px);
     }
 }
 </style>

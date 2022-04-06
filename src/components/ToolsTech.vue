@@ -10,23 +10,10 @@
 </template>
 
 <script>
-import ScrollMagic from "scrollmagic";
 export default {
     name: 'tools-tech',
-    mounted() {
-        var controller = new ScrollMagic.Controller();
-        // build scene only in lg screen mode
-        if (this.$mq === 'lg') {
-            new ScrollMagic.Scene({
-                triggerElement: '#hide',
-                triggerHook: 1,
-            })
-                .setClassToggle(".tools_n_tech", "hide")
-                .addTo(controller);
-        }
-    }
 }
-</script>
+</script> 
 
 <style lang="scss" scoped>
 .tools_n_tech {
@@ -42,17 +29,6 @@ export default {
     }
 }
 @media screen and (min-width: 1000px) {
-    .tools_n_tech {
-        position: sticky;
-        top: 61vh;
-        transform: translateX(min(15%, 150px));
-        // exit transition
-        opacity: 1;
-        transition: all 0.4s ease-out;
-    }
-    .tools_n_tech.hide {
-        opacity: 0;
-        transform: none;
-    }
+    
 }
 </style>

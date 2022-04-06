@@ -1,7 +1,10 @@
 <template>
     <div class="about_me_container">
         <section class="about_me">
-            <h1>We immerse ourselves from the ROOTS to make every digital project happen from start to finish.</h1>
+            <figure>
+                <h1>"Take risks now and do something bold. You won't regret it"</h1>
+                <figcaption>- Elon Musk</figcaption>
+            </figure>
             <p>We put the people in the center of everything we do with one goal in mind: create value for our clients. Every project has specific needs, and we identify and adapt to them, guiding and collaborating with clients throughout the design process.</p>
         </section>
     </div>

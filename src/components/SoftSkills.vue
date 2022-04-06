@@ -17,32 +17,25 @@ import ScrollMagic from 'scrollmagic'
 export default {
     name: 'soft-skills',
     mounted() {
-        var controller = new ScrollMagic.Controller();
-        // build scenes
-        var revealElements = document.getElementsByClassName("skill");
-        for (var i = 0; i < revealElements.length; i++) { // create a scene for each element
-            new ScrollMagic.Scene({
-                triggerElement: '#avatar_trigger', // y value not modified, so we can use element as trigger as well
-                offset: 400 + i*35,
-                triggerHook: 0.9,
-            })
-                .setClassToggle(revealElements[i], "visible") // add class toggle
-                .addTo(controller);
+        if (this.$mq === 'lg') {
+            var controller = new ScrollMagic.Controller();
+            // build scenes
+            var revealElements = document.getElementsByClassName("skill");
+            for (var i = 0; i < revealElements.length; i++) { // create a scene for each element
+                new ScrollMagic.Scene({
+                    triggerElement: '#avatar_trigger', // y value not modified, so we can use element as trigger as well
+                    offset: 400 + i * 35,
+                    triggerHook: 0.9,
+                })
+                    .setClassToggle(revealElements[i], "visible") // add class toggle
+                    .addTo(controller);
+            }
         }
     },
 }
 </script>
 
 <style lang="scss" scoped>
-.skill {
-    opacity: 0;
-    transform: translateX(-40px);
-    transition: all 0.6s ease-in-out;
-}
-.skill.visible {
-    opacity: 1;
-    transform: none;
-}
 .soft_skills {
     display: grid;
     row-gap: 0px;
@@ -72,6 +65,20 @@ export default {
     }
     :nth-child(9) {
         width: 55%;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .skill {
+        opacity: 0;
+        transition: all 0.6s ease-in-out;
+        transform: translateX(-40px);
+    }
+    .skill+.skill {
+        position: relative;
+    }
+    .skill.visible {
+        opacity: 1;
+        transform: none;
     }
 }
 </style>

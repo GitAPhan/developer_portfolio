@@ -33,6 +33,7 @@ export default {
     height: 100vh;
     max-height: 100%;
     display: grid;
+    overflow: hidden;
     grid-template-rows: auto auto auto;
 }
 .soft_logo {
@@ -43,7 +44,11 @@ export default {
     width: 100vw;
     padding: 10px 0px;
     img {
+        max-width: 30vw;
+    }
+    > .contact_logo {
         max-width: 40vw;
+        max-height: 40vh;
     }
 }
 .contact_me {
@@ -55,10 +60,8 @@ export default {
 }
 @media screen and (max-width: 1000px) {
     .soft_skills {
-        display: grid;
         grid-auto-flow: row;
         justify-self: end;
-        row-gap: 0px;
     }
 }
 </style>
