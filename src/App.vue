@@ -36,9 +36,6 @@ export default {
       })
       return themeColors
     },
-    view_width() {
-      return window.innerWidth
-    }
   },
   mounted () {
     console.log(this.$mq);

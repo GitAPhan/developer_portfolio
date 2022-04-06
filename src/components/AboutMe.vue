@@ -33,6 +33,7 @@ export default {
 }
 @media screen and (min-width: 1000px) {
     .about_me {
+        color: var(--v-anchor);
         font-size: 1em;
     }
     .about_me_container {

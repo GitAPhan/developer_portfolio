@@ -17,9 +17,13 @@ export default {
 
 <style lang="scss" scoped>
 .tools_n_tech {
-    position: relative;
+    position: sticky;
     top: 61vh;
-    left: min(18%, 75px);
+    // transform: translateY(-50vh);
+
+    // position: relative;
+    // top: 61vh;
+    // left: min(18%, 75px);
     max-width: 76vw;
     color: var(--v-text);
     font-size: clamp(13.2px, min(3.55vw, 3.55vh), 14.5px);
@@ -30,7 +34,7 @@ export default {
 }
 @media screen and (min-width: 1000px) {
     .tools_n_tech {
-        left: min(17%, 125px);
+        transform: translateX(min(15%, 150px));
     }
 }
 </style>

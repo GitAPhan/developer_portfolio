@@ -78,6 +78,6 @@ export default {
 }
 .avatar.hide {
     opacity: 0;
-    transform: translateY(-180px);
+    transform: translate(80px, -180px);
 }
 </style>

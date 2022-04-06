@@ -49,11 +49,12 @@ export default {
 @media screen and (min-width: 1000px) {
     .left_logo {
         position: relative;
-        height: 300vh;
+        height: 350vh;
     }
     .main_left {
         position: sticky;
         top: 0vh;
+        height: 250vh;
         margin-bottom: 100vh;
     }
     .hero_message {
@@ -66,6 +67,11 @@ export default {
         left: min(90px, 20%);
         max-height: 21%;
         overflow: hidden;
+    }
+    /* also in ProjectSection */
+    .projects {
+        position: relative;
+        top: 50vh;
     }
 }
 </style>

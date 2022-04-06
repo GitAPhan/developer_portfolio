@@ -23,11 +23,10 @@ export default {
 .main_right {
     background-image: url("../assets/logo_right.png");
     background-position: left;
-    scroll-snap-type: y proximity;
 }
 @media screen and (min-width: 1000px) {
     .logo_right {
-        height: 300vh;
+        height: 350vh;
     }
     .main_right {
         position: sticky;
@@ -35,8 +34,8 @@ export default {
     }
     .tech_text {
         position: sticky;
-        top: 0;
-        height: 100vh;
+        top: 0vh;
+        height: 150vh;
     }
 }
 </style>
