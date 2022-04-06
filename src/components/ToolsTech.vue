@@ -21,15 +21,16 @@ export default {
     top: 61vh;
     left: min(18%, 75px);
     max-width: 76vw;
-    color: #ffffff;
+    color: var(--v-text);
     font-size: clamp(13.2px, min(3.55vw, 3.55vh), 14.5px);
     > p {
         margin: 0;
+        color: var(--v-anchor);
     }
 }
 @media screen and (min-width: 1000px) {
     .tools_n_tech {
-        left: min(17%, 125px)
+        left: min(17%, 125px);
     }
 }
 </style>

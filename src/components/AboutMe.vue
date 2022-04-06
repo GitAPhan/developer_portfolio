@@ -16,21 +16,22 @@ export default {
 <style lang="scss" scoped>
 .about_me {
     display: grid;
-    color: var(--v-secondary);
+    color: var(--v-primary);
     row-gap: 10px;
-    font-size: .8em;
+    font-size: 0.8em;
     max-width: 450px;
-    >p:nth-child(2) {
+    > p:nth-child(2) {
         margin-bottom: 0px;
+        color: var(--v-anchor);
     }
 }
 .about_me_container {
     display: grid;
     place-items: center;
-    background-color: var(--v-accent);
+    background-color: var(--v-secondary);
     padding: 10%;
 }
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 1000px) {
     .about_me {
         font-size: 1em;
     }

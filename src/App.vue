@@ -4,7 +4,7 @@
       <div id="main">
         <logo-left />
         <logo-right />
-        <project-section class="container" v-if="view_width < 1000" />
+        <project-section v-if="$mq != 'lg'" />
         <!-- <Contact-section class="main" /> -->
       </div>
     </v-main>
@@ -27,8 +27,12 @@ export default {
   computed: {
     cssProps() {
       var themeColors = {}
-      Object.keys(this.$vuetify.theme.themes.dark).forEach((color) => {
-        themeColors[`--v-${color}`] = this.$vuetify.theme.themes.dark[color]
+      var theme = 'light'
+      if (this.$vuetify.theme.isDark) {
+        theme = 'dark'
+      }
+      Object.keys(this.$vuetify.theme.themes[theme]).forEach((color) => {
+        themeColors[`--v-${color}`] = this.$vuetify.theme.themes[theme][color]
       })
       return themeColors
     },

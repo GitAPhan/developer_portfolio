@@ -1,10 +1,10 @@
 <template>
     <div class="logo_right">
-        <about-me v-if="view_width >= 1000" />
+        <about-me v-if="$mq === 'lg'" />
         <section id="avatar_trigger" class="logo main_right">
-            <tools-tech v-if="view_width < 1000" />
+            <tools-tech v-if="$mq != 'lg'" />
         </section>
-        <section v-if="view_width >= 1000" class="tech_text">
+        <section v-if="$mq === 'lg'" class="tech_text">
             <tools-tech />
         </section>
     </div>
@@ -16,11 +16,6 @@ import AboutMe from './AboutMe.vue'
 export default {
     components: { ToolsTech, AboutMe },
     name: 'logo-right',
-    computed: {
-        view_width() {
-            return window.innerWidth
-        }
-    },
 }
 </script>
 

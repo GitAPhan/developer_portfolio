@@ -1,22 +1,16 @@
 <template>
     <div>
-        <v-sheet
-            v-if="project != undefined"
-            class="project_card"
-            color="primary"
-            width="100%"
-            height="100%"
-        >
+        <v-sheet class="project_card" color="primary">
             <h2>{{ project.name }}</h2>
             <h4>{{ project.tech }}</h4>
             <p>{{ project.description }}</p>
             <img :src="project.screenshot" />
             <v-card-actions class="pa-0">
-                <v-btn color="accent" :href="project.github_link" text>github</v-btn>
+                <v-btn color="anchor" :href="project.github_link" text>github</v-btn>
                 <!-- live link button to only be present if value is not undefined -->
                 <v-btn
                     v-if="project.live_link != undefined"
-                    color="accent"
+                    color="anchor"
                     :href="project.live_link"
                     text
                 >demo</v-btn>
@@ -39,20 +33,25 @@ export default {
 
 <style lang="scss">
 .project_card {
+    // max-height: 450px;
+    // width: 100%;
+    height: 100%;
     position: absolute;
     display: grid;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto auto;
     place-items: center;
-    padding: 15px;
     > img {
         width: 100%;
         max-width: 450px;
     }
-    overflow-y: scroll;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
-.project_card::-webkit-scrollbar {
-    display: none;
+    > h2 {
+        position: sticky;
+        top: 0;
+        padding: 0px 5px 5px;
+        background-color: var(--v-primary);
+    }
+    > p {
+        color: var(--v-anchor);
+    }
 }
 </style>

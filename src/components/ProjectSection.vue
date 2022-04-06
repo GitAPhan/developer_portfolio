@@ -4,7 +4,7 @@
         <project-carousel class="highlighted_project" v-if="model != null" :project="project_view" />
         <v-sheet
             class="d-flex justify-center"
-            v-if="view_width < 1000"
+            v-if="$mq != 'lg'"
             color="primary"
             elevation="8"
             width="100vw"
@@ -20,12 +20,11 @@
                         class="ma-1 d-flex align-center justify-center"
                         height="100px"
                         width="150px"
-                        hover
                         @click="toggle"
                     >
                         <v-img
                             v-if="!active"
-                            class="secondary--text"
+                            class="accent--text"
                             width="100%"
                             :src="project.screenshot"
                         >
@@ -36,7 +35,7 @@
                         <v-scale-transition>
                             <v-icon
                                 v-if="active"
-                                color="accent"
+                                color="anchor"
                                 size="28"
                                 v-text="'mdi-check-circle-outline'"
                             ></v-icon>
@@ -99,13 +98,13 @@ export default {
         project_view() {
             return this.projects[this.model]
         },
-        view_width() {
-            return window.innerWidth
-        }
     },
     methods: {
         model_value() {
-            console.log(this.model)
+            // used to test changing theme 
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+            console.log('changing theme')
+            console.log(this.$vuetify.theme)
         }
     },
 }
@@ -113,7 +112,7 @@ export default {
 
 <style lang="scss">
 .projects {
-    background-color: var(--v-accent);
+    background-color: var(--v-secondary);
     position: relative;
     place-items: center;
     height: 100vh;
@@ -129,8 +128,12 @@ export default {
 }
 .highlighted_project {
     position: relative;
+    display: grid;
     height: 100%;
     width: 90%;
+    padding: 15px;
+    place-items: center;
+    background-color: var(--v-primary);
 }
 .project_card_title {
     font-size: 1em;
@@ -142,7 +145,7 @@ export default {
         overflow-y: scroll;
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
-        >h1 {
+        > h1 {
             position: sticky;
             padding: 5px;
             margin: 0 3%;

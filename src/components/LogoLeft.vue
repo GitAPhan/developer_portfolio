@@ -2,9 +2,9 @@
     <div class="left_logo">
         <section class="logo main_left">
             <hero-message />
+            <soft-skills ref="soft_skills" v-if="$mq === 'lg'" />
         </section>
-        <soft-skills ref="soft_skills" v-if="view_width >= 1000" />
-        <about-me v-if="view_width < 1000" />
+        <about-me v-if="$mq != 'lg'" />
         <project-section v-else />
     </div>
 </template>
@@ -22,25 +22,13 @@ export default {
         ProjectSection,
         SoftSkills,
     },
-    data() {
-        return {
-            avatar_size: undefined
+    methods: {
+        resize_soft_skills(value) {
+            this.$refs.soft_skills.$el.style = 'width: ' + value.toString() + 'px'
         }
     },
-    computed: {
-        view_width() {
-            return window.innerWidth
-        },
-    },
-    watch: {
-        avatar_size() {
-            this.$refs.soft_skills.style.width = this.avatar_size 
-            console.log(this.$refs.soft_skills)
-        }
-    },
-    mounted () {
-        this.$root.$on('avatar_size', (size)=>{this.avatar_size = size
-        console.log(size)});
+    mounted() {
+        this.$root.$on('avatar_resize', this.resize_soft_skills);
     },
 }
 </script>
@@ -49,12 +37,11 @@ export default {
 .main_left {
     background-image: url("../assets/logo_left.png");
     background-position: right;
-    scroll-snap-type: y proximity;
 }
 .hero_message {
     position: relative;
     top: 35vh;
-    right: -8%;
+    left: 8%;
     width: 50%;
     max-width: 250px;
     min-width: 160px;
@@ -69,15 +56,16 @@ export default {
         top: 0vh;
         margin-bottom: 100vh;
     }
-    .hero {
-        right: min(-90px, -20%);
+    .hero_message {
+        left: min(90px, 20%);
         max-width: 500px;
     }
     .soft_skills {
-        top: 164vh;
+        top: 64vh;
         position: absolute;
-        left: min(64px, 20%);
-        width: 22%;
+        left: min(90px, 20%);
+        max-height: 21%;
+        overflow: hidden;
     }
 }
 </style>

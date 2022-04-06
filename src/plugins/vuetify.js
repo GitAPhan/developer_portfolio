@@ -10,17 +10,17 @@ const vuetify = new Vuetify({
             dark: {
                 primary: '#464545',
                 text: '#ffffff',
-                secondary: '#450303',
-                accent: '#d6cfcf',
-                anchor: '#f1f1f1',
+                accent: '#450303',
+                secondary: '#717070',
+                anchor: '#f7f7f7',
                 background: "#1f1f1f"
             },
             light: {
-                primary: '#f1f1f1',
+                primary: '#d6cfcf',
                 text: '#1f1f1f',
-                secondary: '#450303',
-                accent: '#d6cfcf',
-                anchor: '#464545',
+                accent: '#450303',
+                secondary: '#a59e9e',
+                anchor: '#1f1e1e',
                 background: "#FFFFFF"
             }
         },

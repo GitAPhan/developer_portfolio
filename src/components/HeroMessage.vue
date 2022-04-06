@@ -20,27 +20,32 @@ export default {
             avatar_size: undefined
         }
     },
-    methods: {
-        name() {
-            
-        }
-    },
-    mounted () {
+    mounted() {
         // determine avatar size based off previous sibling's clientWidth
-        this.avatar_size = Math.round(this.$refs.developer.clientWidth*.69);
-        this.$root.$emit('avatar_size', this.avatar_size)
+        this.$nextTick(()=>{this.avatarSize()})
         // scroll magic for avatar disappearing        
         var controller = new ScrollMagic.Controller();
         // build scenes
-            new ScrollMagic.Scene({
-                triggerElement: "#avatar_trigger",
-                offset: 50,												 // start a little later
-                triggerHook: 0.8,
-            })
-                .setClassToggle(".avatar", "hide") // add class toggle
-                .addTo(controller);
-        
+        new ScrollMagic.Scene({
+            triggerElement: "#avatar_trigger",
+            offset: 50,
+            triggerHook: 0.8,
+        })
+            .setClassToggle(".avatar", "hide") // add class toggle
+            .addTo(controller);
     },
+    created() {
+        window.addEventListener("resize", this.avatarSize);
+    },
+    destroyed() {
+        window.removeEventListener("resize", this.avatarSize);
+    },
+    methods: {
+        avatarSize() {
+            this.$root.$emit('avatar_resize', this.$refs.developer.clientWidth*.8)
+            this.avatar_size = Math.round(this.$refs.developer.clientWidth * .69)
+        }
+    }
 }
 </script>
 
@@ -69,10 +74,10 @@ export default {
 .avatar {
     opacity: 1;
     transform: none;
+    transition: all 1s ease-in-out;
 }
 .avatar.hide {
     opacity: 0;
     transform: translateY(-180px);
-    transition: all 1s ease-in-out;
 }
 </style>

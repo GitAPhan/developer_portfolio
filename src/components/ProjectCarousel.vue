@@ -1,10 +1,17 @@
 <template>
     <div>
-        <v-carousel-transition>
-            <project-card v-if="project1 != undefined" :project="project1" :key="project1.id+.2" />
-        
-            <project-card v-if="project2 != undefined" :project="project2" :key="project2.id+.2" />
-        </v-carousel-transition>
+        <article>
+            <v-slide-y-reverse-transition
+                :leave-absolute="true"
+                :hide-on-leave="true"
+                mode="in"
+                origin="top left"
+                :group="true"
+            >
+                <project-card v-if="view" :project="project" :key="project.id + .2" />
+                <project-card v-else :project="project" :key="project.id + .3" />
+            </v-slide-y-reverse-transition>
+        </article>
     </div>
 </template>
 
@@ -14,8 +21,7 @@ export default {
     name: 'project-carousel',
     data() {
         return {
-            project1: this.project,
-            project2: undefined,
+            view: null,
         }
     },
     props: {
@@ -25,14 +31,8 @@ export default {
         },
     },
     watch: {
-        project() {
-            if (this.project2 === undefined) {
-                this.project1 = undefined
-                setTimeout(() => {this.project2 = this.project},1)
-            } else {
-                this.project2 = undefined
-                setTimeout(() => {this.project1 = this.project},1)
-            }
+        project: function () {
+            this.view = !this.view
         }
     },
     components: {
@@ -42,4 +42,16 @@ export default {
 </script>
 
 <style lang="scss">
+.highlighted_project > article {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.highlighted_project > article::-webkit-scrollbar {
+    display: none;
+}
 </style>
