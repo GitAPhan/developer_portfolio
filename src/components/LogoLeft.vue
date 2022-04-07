@@ -1,7 +1,7 @@
 <template>
     <div class="left_logo">
         <section class="logo main_left">
-            <hero-message />
+            <hero-message class="main_hero"/>
             <soft-skills ref="soft_skills" v-if="$mq === 'lg'" />
         </section>
         <about-me v-if="$mq != 'lg'" />
@@ -40,7 +40,7 @@ export default {
     background-image: url("../assets/logo_left.png");
     background-position: right;
 }
-.hero_message {
+.main_hero.hero_message {
     position: relative;
     top: 35vh;
     left: 8%;
@@ -59,7 +59,7 @@ export default {
         height: 200vh;
         margin-bottom: 100vh;
     }
-    .hero_message {
+    .main_hero.hero_message {
         left: min(90px, 20%);
         max-width: 500px;
     }

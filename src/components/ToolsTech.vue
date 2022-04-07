@@ -18,17 +18,17 @@ export default {
 <style lang="scss" scoped>
 .tools_n_tech {
     position: relative;
-    top: 61vh;
-    left: min(18%, 75px);
-    max-width: 76vw;
-    color: var(--v-text);
-    font-size: clamp(13.2px, min(3.55vw, 3.55vh), 14.5px);
     > p {
         margin: 0;
         color: var(--v-anchor);
     }
 }
-@media screen and (min-width: 1000px) {
-    
+@media screen and (max-width: 1000px) {
+    .tools_n_tech {
+        top: 61vh;
+        max-width: 76vw;
+        left: min(18%, 75px);
+        font-size: clamp(13.2px, min(3.55vw, 3.55vh), 14.5px);
+    }
 }
 </style>

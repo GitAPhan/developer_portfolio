@@ -37,7 +37,7 @@ export default {
       return themeColors
     },
   },
-  mounted () {
+  mounted() {
     console.log(this.$mq);
   },
 };
@@ -51,7 +51,7 @@ export default {
 }
 #app {
   background-color: var(--v-primary);
-  max-width: 100vw;
+  width: 100vw;
   display: grid;
   color: var(--v-text);
 }
@@ -66,6 +66,8 @@ export default {
 @media screen and (min-width: 1000px) {
   #main {
     position: relative;
+    max-width: 1920px;
+
     width: 100vw;
     display: grid;
     grid-template-columns: 50vw 50vw;

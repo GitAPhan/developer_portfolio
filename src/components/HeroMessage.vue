@@ -17,7 +17,7 @@ export default {
     name: 'hero-message',
     data() {
         return {
-            avatar_size: undefined
+            avatar_size: undefined,
         }
     },
     mounted() {

@@ -4,7 +4,7 @@
         <section id="avatar_trigger" class="logo main_right">
             <tools-tech v-if="$mq != 'lg'" />
         </section>
-        <section v-if="$mq === 'lg'" class="tech_text">
+        <section v-if="$mq === 'lg'" class="tech_quote">
             <figure class="quote">
                 <h1>"Technology is a word that describes something that doesn't work"</h1>
                 <figcaption>- Douglas Adams</figcaption>
@@ -51,7 +51,7 @@ export default {
         position: sticky;
         top: 0;
     }
-    .tech_text {
+    .tech_quote {
         position: sticky;
         top: 0vh;
         height: 150vh;

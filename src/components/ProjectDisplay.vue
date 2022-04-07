@@ -39,7 +39,7 @@
                                         v-if="project.live_link != undefined"
                                         :href="project.live_link"
                                     >
-                                        <v-icon>mdi-microsoft-xbox-controller-view</v-icon>
+                                        <v-icon>mdi-application-export</v-icon>
                                     </v-btn>
                                 </v-card-actions>
                             </v-col>
@@ -81,10 +81,9 @@ img {
 }
 .tech_chip {
     border: 2px var(--v-text) solid;
-    background-color: var(--v-anchor);
     border-radius: 5px;
     padding: 0px 5px;
     margin-right: 5px;
-    color: var(--v-accent);
+    color: var(--v-anchor);
 }
 </style>
