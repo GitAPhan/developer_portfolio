@@ -153,6 +153,7 @@ export default {
 }
 @media screen and (min-width: 1000px) {
     .projects {
+        // max-height: 100vh;
         background-color: var(--v-primary);
         grid-template-rows: auto 1fr;
         // overflow-y: scroll;

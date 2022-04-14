@@ -1,7 +1,7 @@
 <template>
     <div class="left_logo">
         <section class="logo main_left">
-            <hero-message class="main_hero"/>
+            <hero-message :color_state="0" class="main_hero"/>
             <soft-skills ref="soft_skills" v-if="$mq === 'lg'" />
         </section>
         <about-me v-if="$mq != 'lg'" />
@@ -60,15 +60,15 @@ export default {
         margin-bottom: 100vh;
     }
     .main_hero.hero_message {
-        left: min(90px, 20%);
+        left: max(200px, 30%);
         max-width: 500px;
     }
-    .soft_skills {
+    .main_left>.soft_skills {
         top: 64vh;
         position: absolute;
-        left: min(90px, 20%);
-        max-height: 21%;
-        overflow: hidden;
+        left: max(200px, 30%);
+        /* max-height: 21%; */
+        /* overflow: hidden; */
     }
     /* also in ProjectSection */
     .projects {

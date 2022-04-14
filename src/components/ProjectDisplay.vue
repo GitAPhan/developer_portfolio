@@ -27,10 +27,10 @@
                 </span>-->
                 <v-card elevation="4" color="primary">
                     <v-container>
-                        <v-row>
+                        <v-row no-gutters>
                             <v-col>
                                 <v-card-title>{{ project.name }}</v-card-title>
-                                <v-img :src="project.screenshot" alt="website screenshot" />
+                                <v-img max-width="25vw" :src="project.screenshot" alt="website screenshot" />
                                 <v-card-actions>
                                     <v-btn :href="project.github_link">
                                         <v-icon>mdi-github</v-icon>
@@ -77,7 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 img {
-    width: 200px;
+    max-width: 25vw;
 }
 .tech_chip {
     border: 2px var(--v-text) solid;

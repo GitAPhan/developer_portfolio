@@ -4,7 +4,7 @@
         <section class="soft_logo">
             <soft-skills v-if="$mq != 'lg'" />
             <img class="contact_logo" src="@/assets/logo_full.png" alt="AP logo" />
-            <hero-message class="contact_hero" v-if="$mq === 'lg'" />
+            <hero-message :color_state="2" class="contact_hero" v-if="$mq === 'lg'" />
         </section>
         <section class="contact_right">
             <!-- summary 'about-me' -->
@@ -62,14 +62,14 @@ export default {
     padding: 15px;
 }
 @media screen and (max-width: 1000px) {
-    .soft_skills {
-        grid-auto-flow: row;
-        justify-self: end;
-    }
     .soft_logo {
         grid-template-columns: 1fr 1fr;
         width: 100vw;
         justify-items: start;
+        .soft_skills {
+            grid-auto-flow: row;
+            justify-self: end;
+        }
     }
 }
 @media screen and (min-width: 1000px) {
@@ -83,7 +83,8 @@ export default {
     .footer {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: none;
-        column-gap: 20px;    }
+        column-gap: 20px;
+    }
     .soft_logo {
         grid-auto-flow: row;
         align-self: center;
@@ -100,7 +101,7 @@ export default {
         row-gap: 7%;
         // align-items: center;
         justify-self: start;
-        >.more_me_container {
+        > .more_me_container {
             padding: 0;
         }
     }

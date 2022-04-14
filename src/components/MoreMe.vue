@@ -2,8 +2,8 @@
     <div class="more_me_container">
         <section class="more_me">
             <figure v-if="$mq === 'lg'" class="more_me_quote">
-                <h1>"Technology is a word that describes something that doesn't work"</h1>
-                <figcaption>- Douglas Adams</figcaption>
+                <h1>“Once a new technology rolls over you, if you're not part of the steamroller, you're part of the road.”</h1>
+                <figcaption>- Stewart Brand, Writer</figcaption>
             </figure>
             <p>We immerse ourselves from the ROOTS to make every digital project happen from start to finish.</p>
             <p>We put the people in the center of everything we do with one goal in mind: create value for our clients. Every project has specific needs, and we identify and adapt to them, guiding and collaborating with clients throughout the design process.</p>

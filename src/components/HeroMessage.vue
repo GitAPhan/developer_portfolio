@@ -1,8 +1,10 @@
 <template>
-    <div class="hero_message">
+    <div @click="change_fname_color" class="hero_message">
         <img class="hero" src="../assets/heroL_hello_world.png" alt="hello world" />
-        <img ref="andrew" class="hero" src="../assets/heroL_andrew_white.png" alt="I'm Andrew" />
-        <img ref="phan" class="hero" src="../assets/heroL_phan_black.png" alt="Phan" />
+        <div class="hero fname" ref="fname" />
+        <!-- <img class="hero fname hide" v-else src="../assets/heroL_andrew_black.png" alt="I'm Andrew" /> -->
+        <img v-if="color_state === 2" class="hero" src="../assets/heroL_phan_white.png" alt="Phan" />
+        <img v-else class="hero" src="../assets/heroL_phan_black.png" alt="Phan" />
         <img class="hero" src="../assets/heroL_full_stack.png" alt="a Full-Stack" />
         <img ref="developer" class="hero" src="../assets/heroL_developer.png" alt="Developer" />
         <v-avatar class="avatar" :size="avatar_size">
@@ -18,6 +20,7 @@ export default {
     data() {
         return {
             avatar_size: undefined,
+            isWhite: true,
         }
     },
     mounted() {
@@ -26,6 +29,7 @@ export default {
         // scroll magic for avatar disappearing        
         if (this.$mq === 'lg') {
             var controller = new ScrollMagic.Controller();
+            // var fname = this.$refs.fname
             // build scenes
             new ScrollMagic.Scene({
                 triggerElement: "#avatar_trigger",
@@ -33,6 +37,13 @@ export default {
                 triggerHook: 0.8,
             })
                 .setClassToggle(".avatar", "hide") // add class toggle
+                .addTo(controller);
+            new ScrollMagic.Scene({
+                triggerElement: "#avatar_trigger",
+                offset: 500,
+                triggerHook: 0.9,
+            })
+                .setClassToggle(".fname", "hidden") // add class toggle
                 .addTo(controller);
         }
     },
@@ -46,40 +57,67 @@ export default {
         avatarSize() {
             if (this.$mq === 'lg') { this.$root.$emit('avatar_resize', this.$refs.developer.clientWidth * .8) }
             this.avatar_size = Math.round(this.$refs.developer.clientWidth * .69)
-        }
-    }
+        },
+        change_fname_color: function () {
+            console.log(this.isWhite)
+            this.isWhite = !this.isWhite
+        },
+    },
+    props: {
+        color_state: {
+            type: Number,
+            require: true
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 .hero_message {
     display: grid;
+
     .avatar {
         margin-top: 14%;
     }
+
     :nth-child(1) {
         width: 25vh;
     }
+
     :nth-child(2) {
         width: 23.5vh;
+        background-image: url("../assets/heroL_andrew_white.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        overflow-y: visible;
+        padding-top: 12.64%;
     }
+
     :nth-child(3) {
         width: 20vh;
     }
+
     :nth-child(4) {
         width: 19vh;
     }
+
     :nth-child(5) {
         width: 17.8vh;
     }
 }
+
 .avatar {
     opacity: 1;
     transform: none;
     transition: all 1s ease-in-out;
 }
+
 .avatar.hide {
     opacity: 0;
     transform: translate(80px, -180px);
+}
+
+.fname.hidden {
+    background-image: url("../assets/heroL_andrew_black.png");
 }
 </style>
