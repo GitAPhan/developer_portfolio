@@ -48,11 +48,11 @@
                                     <p
                                         class="tech_chip"
                                         v-for="tag in project.tech"
-                                        :key="tag + project.id"
+                                        :key="tag + project.id*.22 + .002"
                                     >{{ tag }}</p>
                                 </v-card-subtitle>
                                 <v-card-text>
-                                    <p>{{ project.description }}</p>
+                                    <p v-for="desc in project.description" :key="desc+12">{{ desc }}</p>
                                 </v-card-text>
                             </v-col>
                         </v-row>

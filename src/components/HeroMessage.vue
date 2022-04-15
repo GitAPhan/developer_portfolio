@@ -86,11 +86,12 @@ export default {
 
     :nth-child(2) {
         width: 23.5vh;
+        position: relative;
         background-image: url("../assets/heroL_andrew_white.png");
         background-size: contain;
         background-repeat: no-repeat;
         overflow-y: visible;
-        padding-top: 12.64%;
+        padding-top: 19.62%;
     }
 
     :nth-child(3) {
@@ -119,5 +120,10 @@ export default {
 
 .fname.hidden {
     background-image: url("../assets/heroL_andrew_black.png");
+}
+@media screen and (min-width: 1000px) {
+    .hero.fname{
+        padding-top: 12.64%;
+    }
 }
 </style>
