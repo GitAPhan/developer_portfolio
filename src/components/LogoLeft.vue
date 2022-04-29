@@ -56,7 +56,6 @@ export default {
     .main_left {
         position: sticky;
         top: 0vh;
-        height: 200vh;
         margin-bottom: 100vh;
     }
     .main_hero.hero_message {

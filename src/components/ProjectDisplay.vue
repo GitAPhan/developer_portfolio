@@ -35,24 +35,18 @@
                                     <v-btn :href="project.github_link">
                                         <v-icon>mdi-github</v-icon>
                                     </v-btn>
-                                    <v-btn
-                                        v-if="project.live_link != undefined"
-                                        :href="project.live_link"
-                                    >
+                                    <v-btn v-if="project.live_link != undefined" :href="project.live_link">
                                         <v-icon>mdi-application-export</v-icon>
                                     </v-btn>
                                 </v-card-actions>
                             </v-col>
                             <v-col>
                                 <v-card-subtitle class="d-flex">
-                                    <p
-                                        class="tech_chip"
-                                        v-for="tag in project.tech"
-                                        :key="tag + project.id*.22 + .002"
-                                    >{{ tag }}</p>
+                                    <p class="tech_chip" v-for="tag in project.tech"
+                                        :key="tag + project.id * .22 + .002">{{ tag }}</p>
                                 </v-card-subtitle>
                                 <v-card-text>
-                                    <p v-for="desc in project.description" :key="desc+12">{{ desc }}</p>
+                                    <p v-for="desc in project.description" :key="desc + 12 * project.id">{{ desc }}</p>
                                 </v-card-text>
                             </v-col>
                         </v-row>
@@ -79,6 +73,7 @@ export default {
 img {
     max-width: 25vw;
 }
+
 .tech_chip {
     border: 2px var(--v-text) solid;
     border-radius: 5px;

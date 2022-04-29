@@ -49,9 +49,9 @@ export default {
                     "name": "Tweeter",
                     "tech": ["VueJs", "Python", "Flask", "MariaDb"],
                     "description": {
-                        intro: "lorem",
-                        synopsis: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.",
-                        tech: "lorem"
+                        intro: "As my first full-stack application I was solely focused on building an application that worked. This project allowed me to learn a lot about how to organize my project and keep my components in my frontend framework simple and small. I found myself needlessly making the components more difficult and complex to work with. My next step with this project will be to redo the frontend to simplify my components and make my code easier to understand.",
+                        synopsis: "A Twitter-clone application that includes authentication, user profile management, tweet posts, follows of profiles and likes of tweets and comments.",
+                        tech: "This full-stack application was built using the frontend framework VueJs, Flask and Python was used to build the api, and MariaDb was used for the database. Deployed using Google cloud platform"
                     },
                     "live_link": "https://github.com/GitAPhan/tweeter-project",
                     "github_link": "https://github.com/GitAPhan/tweeter_project_backend",
@@ -61,9 +61,9 @@ export default {
                     "name": "Okotoks Pizza",
                     "tech": ["HTML5", "SASS"],
                     "description": {
-                        intro: "lorem",
-                        synopsis: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.",
-                        tech: "lorem"
+                        intro: "This project was used to develop my requirements gathering, prototyping, SEO and mobile responsiveness skills",
+                        synopsis: "A consumer-facing website with the focus to drive traffic to learn about the staff and the history of the restaurant, view the menu, and seek contact details to call, email or visit the store",
+                        tech: "This frontend application was build using only HTML5 and SASS. Deployed using Google Cloud Platform(GCP) and Apache"
                     },
                     "github_link": "https://github.com/GitAPhan/OkotoksPizza",
                     "screenshot": "http://loremflickr.com/g/300/200/website",
@@ -72,9 +72,9 @@ export default {
                     "name": "Pokemon Battle Simulator",
                     "tech": ["HTML5", "SASS", "JavaScript"],
                     "description": {
-                        intro: "lorem",
-                        synopsis: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.",
-                        tech: "lorem"
+                        intro: "For this turn-based application, users are able to select their desired pokemon. They will be able to see their pokemon’s health, attack options and mana, as well as the enemy pokemon and their health.",
+                        synopsis: "Built as part of a solo hackathon. We were given 8 hours and tasked to build a Pokemon battle simulator.",
+                        tech: "This frontend application was built using HTML5, SASS and JavaScript."
                     },
                     "live_link": "http://live_link.com",
                     "github_link": "https://github.com/GitAPhan/Classic_Pokemon_Battle_Hackathon",

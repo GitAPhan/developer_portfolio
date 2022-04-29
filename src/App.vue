@@ -67,7 +67,6 @@ export default {
   #main {
     position: relative;
     max-width: 1920px;
-
     width: 100vw;
     display: grid;
     grid-template-columns: 50vw 50vw;
