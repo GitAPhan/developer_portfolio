@@ -5,10 +5,11 @@
             <tools-tech v-if="$mq != 'lg'" />
         </section>
         <section v-if="$mq === 'lg'" class="tech_quote">
-            <figure class="quote">
-                <h1>"Technology is a word that describes something that doesn't work"</h1>
-                <figcaption>- Douglas Adams</figcaption>
-            </figure>
+            <div class="quote">
+                <p>Since graduating from a coding bootcamp and receiving my Full-Stack Development Diploma. I have played around with building different applications using JavaScript, VueJS, Python, Flask and MySQL just to name a few. </p>
+                <!-- <h1>"Technology is a word that describes something that doesn't work"</h1>
+                <figcaption>- Douglas Adams</figcaption> -->
+            </div>
         </section>
     </div>
 </template>
@@ -59,10 +60,13 @@ export default {
     .quote {
         position: sticky;
         top: 61vh;
-        transform: translateX(min(15%, 150px));
+        transform: translateX(min(17%, 150px));
         opacity: 1;
-        max-width: 76%;
+        max-width: 70%;
         transition: all 0.4s ease-out;
+    }
+    .quote>p {
+        font-size: 20px;
     }
     .quote.hide {
         opacity: 0;

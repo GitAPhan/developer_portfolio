@@ -7,8 +7,8 @@
         <img v-else class="hero" src="../assets/heroL_phan_black.png" alt="Phan" />
         <img class="hero" src="../assets/heroL_full_stack.png" alt="a Full-Stack" />
         <img ref="developer" class="hero" src="../assets/heroL_developer.png" alt="Developer" />
-        <v-avatar class="avatar" :size="avatar_size">
-            <img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" />
+        <v-avatar class="avatar" :size="avatar_size+40">
+            <img alt="Avatar" src="../assets/hero_picture.png" />
         </v-avatar>
     </div>
 </template>

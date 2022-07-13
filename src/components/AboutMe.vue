@@ -1,16 +1,15 @@
 <template>
     <div class="about_me_container">
         <section class="about_me">
-            <figure>
+            <!-- <figure>
                 <h1>"Take risks now and do something bold. You won't regret it"</h1>
                 <figcaption>- Elon Musk</figcaption>
-            </figure>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quibusdam velit tenetur magni voluptates
-                repellat eum molestias, placeat, officiis commodi et neque consectetur, libero fugit possimus
-                perferendis tempore ipsa laudantium.</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam magnam debitis aliquam incidunt vel
-                soluta fugiat, hic totam minus natus facilis error quaerat quam, placeat tempora! A et molestias saepe.
-            </p>
+            </figure> -->
+            <!-- <p>Hi, I'm Andrew Phan. A recent graduate of a coding bootcamp receiving a Full-Stack Development Diploma. From my very first "Hello World!", a whole new world seemed to open up all around me. </p> -->
+            <!-- <p>Growing up, I was always fascinated about technology and figuring how it works. I would spend my childhood taking apart anything electronic just to see if I can learn how it ticks and then put it back together (most of the time). I would still rememeber feeling a sense of accomplishment when I was able to see it working again and getting away with my perfect little crime. -->
+            <!-- </p> -->
+            <p>The first time I wrote "Hello World!". A whole new world opened up to me. The second time I wrote it. I was hooked! Finally, my curiousity which I thought disappeared came back running full force and I just couldn't get enough.</p>
+            
         </section>
     </div>
 </template>
