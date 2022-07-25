@@ -36,6 +36,11 @@ export default {
 }
 #app {
   background-color: var(--v-primary);
+  max-height: 100vh;
+  overflow-y: hidden;
   color: var(--v-text);
+}
+#main {
+  width: 100vw;
 }
 </style>

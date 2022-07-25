@@ -43,6 +43,8 @@ export default {
 .main_right {
     background-image: url("../assets/logo_right.png");
     background-position: left;
+    height: 100%;
+    max-height: 768px;
 }
 @media screen and (min-width: 1000px) {
     .logo_right {

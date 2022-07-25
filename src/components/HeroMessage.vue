@@ -77,33 +77,38 @@ export default {
     display: grid;
 
     .avatar {
-        margin-top: 14%;
+        margin-top: 6%;
     }
 
     :nth-child(1) {
-        width: 25vh;
+        width: 100%;
     }
 
     :nth-child(2) {
-        width: 23.5vh;
+        width: 94%;
+        height: 0px;
         position: relative;
         background-image: url("../assets/heroL_andrew_white.png");
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         overflow-y: visible;
-        padding-top: 19.62%;
+        overflow-x: hidden;
+        padding-bottom: 19%;
     }
 
     :nth-child(3) {
-        width: 20vh;
+        width: 82%;
+        // width: 30%;
     }
 
     :nth-child(4) {
-        width: 19vh;
+        width: 79%;
+        // width: 29%;
     }
 
     :nth-child(5) {
-        width: 17.8vh;
+        width: 75%;
+        // width: 27.8%;
     }
 }
 
@@ -123,7 +128,7 @@ export default {
 }
 @media screen and (min-width: 1000px) {
     .hero.fname{
-        padding-top: 12.64%;
+        // padding-top: 12.64%;
     }
 }
 </style>

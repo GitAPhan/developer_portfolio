@@ -1,45 +1,61 @@
 <template>
-  <div id="main">
-    <logo-left />
-    <logo-right />
-    <project-section v-if="$mq != 'lg'" />
-    <Contact-section class="contact_section" />
+  <div class="outer-view d-flex justify-center align-center">
+    <div class="inner-view main">
+      <logo-left />
+      <!-- <logo-right />
+      <project-section v-if="$mq != 'lg'" />
+      <Contact-section class="contact_section" /> -->
+    </div>
   </div>
 </template>
 
 <script>
-import ContactSection from './ContactSection.vue';
-import LogoLeft from './LogoLeft.vue';
-import LogoRight from './LogoRight.vue';
-import ProjectSection from './ProjectSection.vue';
+import LogoLeft from "./LogoLeft.vue";
+// import LogoRight from './LogoRight.vue';
+// import ProjectSection from './ProjectSection.vue';
+// import ContactSection from './ContactSection.vue';
 export default {
   name: "main-container",
   components: {
-    ContactSection,
     LogoLeft,
-    LogoRight,
-    ProjectSection,
+    // LogoRight,
+    // ProjectSection,
+    // ContactSection,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-/* logo-left & logo-right */
-.logo {
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: auto 70%;
-  width: 100%;
-  scroll-snap-type: y proximity;
+.outer-view {
+    width: 100%;
+    height: 100%;
 }
+/* logo-left & logo-right */
+.main {
+  height: 100%;
+  width: 100%;
+}
+// .logo {
+//   height: 100%;
+//   background-repeat: no-repeat;
+//   background-size: auto 70%;
+//   width: 100%;
+//   scroll-snap-type: y proximity;
+// }
 @media screen and (min-width: 1000px) {
-  #main {
-    position: relative;
+  .main {
+    // position: relative;
     max-width: 1366px;
     max-height: 768px;
-    width: 100vw;
+    // width: 100%;
     display: grid;
-    grid-template-columns: 50vw 50vw;
+    grid-template-columns: 50% 50%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .main::-webkit-scrollbar {
+    display: none;
   }
   .contact_section {
     grid-column: span 2;

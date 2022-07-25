@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss">
 .footer {
-    height: 100vh;
+    height: 100%;
     max-height: 100%;
     display: grid;
     // overflow: hidden;
@@ -47,11 +47,11 @@ export default {
     align-items: center;
     padding: 10px 0px;
     img {
-        max-width: 30vw;
+        max-width: 30%;
     }
     > .contact_logo {
-        max-width: 40vw;
-        max-height: 40vh;
+        max-width: 40%;
+        max-height: 40%;
     }
 }
 .contact_me {
@@ -64,7 +64,7 @@ export default {
 @media screen and (max-width: 1000px) {
     .soft_logo {
         grid-template-columns: 1fr 1fr;
-        width: 100vw;
+        width: 100%;
         justify-items: start;
         .soft_skills {
             grid-auto-flow: row;

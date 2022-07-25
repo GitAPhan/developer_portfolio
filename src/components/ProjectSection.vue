@@ -65,6 +65,7 @@ export default {
                         synopsis: "A consumer-facing website with the focus to drive traffic to learn about the staff and the history of the restaurant, view the menu, and seek contact details to call, email or visit the store",
                         tech: "This frontend application was build using only HTML5 and SASS. Deployed using Google Cloud Platform(GCP) and Apache"
                     },
+                    "live_link": "https://okpizza.ml",
                     "github_link": "https://github.com/GitAPhan/OkotoksPizza",
                     "screenshot": "http://loremflickr.com/g/300/200/website",
                 }, {
