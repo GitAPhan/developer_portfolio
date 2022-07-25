@@ -1,134 +1,137 @@
 <template>
-    <div @click="change_fname_color" class="hero_message">
-        <img class="hero" src="../assets/heroL_hello_world.png" alt="hello world" />
-        <div class="hero fname" ref="fname" />
-        <!-- <img class="hero fname hide" v-else src="../assets/heroL_andrew_black.png" alt="I'm Andrew" /> -->
-        <img v-if="color_state === 2" class="hero" src="../assets/heroL_phan_white.png" alt="Phan" />
-        <img v-else class="hero" src="../assets/heroL_phan_black.png" alt="Phan" />
-        <img class="hero" src="../assets/heroL_full_stack.png" alt="a Full-Stack" />
-        <img ref="developer" class="hero" src="../assets/heroL_developer.png" alt="Developer" />
-        <v-avatar class="avatar" :size="avatar_size+40">
-            <img alt="Avatar" src="../assets/hero_picture.png" />
-        </v-avatar>
-    </div>
+  <div @click="change_fname_color" class="hero_message">
+    <img src="../assets/heroL_hello_world.png" alt="hello world" />
+    <div class="fname" ref="fname" />
+    <img
+      v-if="color_state === 2"
+      src="../assets/heroL_phan_white.png"
+      alt="Phan"
+    />
+    <img v-else src="../assets/heroL_phan_black.png" alt="Phan" />
+    <img src="../assets/heroL_full_stack.png" alt="a Full-Stack" />
+    <img ref="developer" src="../assets/heroL_developer.png" alt="Developer" />
+    <v-avatar class="avatar" :size="avatar_size + 40">
+      <img alt="Avatar" src="../assets/hero_picture.png" />
+    </v-avatar>
+  </div>
 </template>
 
 <script>
 import ScrollMagic from "scrollmagic";
 export default {
-    name: 'hero-message',
-    data() {
-        return {
-            avatar_size: undefined,
-            isWhite: true,
-        }
+  name: "hero-message",
+  data() {
+    return {
+      avatar_size: undefined,
+      isWhite: true,
+    };
+  },
+  mounted() {
+    // determine avatar size based off previous sibling's clientWidth
+    this.$nextTick(() => {
+      this.avatarSize();
+    });
+    // scroll magic for avatar disappearing
+    if (this.$mq === "lg") {
+      var controller = new ScrollMagic.Controller();
+      // var fname = this.$refs.fname
+      // build scenes
+      new ScrollMagic.Scene({
+        triggerElement: "#avatar_trigger",
+        offset: 50,
+        triggerHook: 0.85,
+      })
+        .setClassToggle(".avatar", "hide") // add class toggle
+        .addTo(controller);
+      new ScrollMagic.Scene({
+        triggerElement: "#avatar_trigger",
+        offset: 250,
+        triggerHook: 0.8,
+      })
+        .setClassToggle(".fname", "hidden") // add class toggle
+        .addTo(controller);
+    }
+  },
+  created() {
+    window.addEventListener("resize", this.avatarSize);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.avatarSize);
+  },
+  methods: {
+    avatarSize() {
+      if (this.$mq === "lg") {
+        this.$root.$emit(
+          "avatar_resize",
+          this.$refs.developer.clientWidth * 0.8
+        );
+      }
+      this.avatar_size = Math.round(this.$refs.developer.clientWidth * 0.69);
     },
-    mounted() {
-        // determine avatar size based off previous sibling's clientWidth
-        this.$nextTick(() => { this.avatarSize() })
-        // scroll magic for avatar disappearing        
-        if (this.$mq === 'lg') {
-            var controller = new ScrollMagic.Controller();
-            // var fname = this.$refs.fname
-            // build scenes
-            new ScrollMagic.Scene({
-                triggerElement: "#avatar_trigger",
-                offset: 50,
-                triggerHook: 0.8,
-            })
-                .setClassToggle(".avatar", "hide") // add class toggle
-                .addTo(controller);
-            new ScrollMagic.Scene({
-                triggerElement: "#avatar_trigger",
-                offset: 500,
-                triggerHook: 0.9,
-            })
-                .setClassToggle(".fname", "hidden") // add class toggle
-                .addTo(controller);
-        }
+    change_fname_color: function () {
+      console.log(this.isWhite);
+      this.isWhite = !this.isWhite;
     },
-    created() {
-        window.addEventListener("resize", this.avatarSize);
+  },
+  props: {
+    color_state: {
+      type: Number,
+      require: true,
     },
-    destroyed() {
-        window.removeEventListener("resize", this.avatarSize);
-    },
-    methods: {
-        avatarSize() {
-            if (this.$mq === 'lg') { this.$root.$emit('avatar_resize', this.$refs.developer.clientWidth * .8) }
-            this.avatar_size = Math.round(this.$refs.developer.clientWidth * .69)
-        },
-        change_fname_color: function () {
-            console.log(this.isWhite)
-            this.isWhite = !this.isWhite
-        },
-    },
-    props: {
-        color_state: {
-            type: Number,
-            require: true
-        },
-    },
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .hero_message {
-    display: grid;
+  display: grid;
 
-    .avatar {
-        margin-top: 6%;
-    }
+  :nth-child(1) {
+    width: 100%;
+  }
 
-    :nth-child(1) {
-        width: 100%;
-    }
+  :nth-child(2) {
+    width: 94%;
+    height: 0px;
+    position: relative;
+    background-image: url("../assets/heroL_andrew_white.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: visible;
+    overflow-x: hidden;
+    padding-bottom: 19%;
+  }
 
-    :nth-child(2) {
-        width: 94%;
-        height: 0px;
-        position: relative;
-        background-image: url("../assets/heroL_andrew_white.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        overflow-y: visible;
-        overflow-x: hidden;
-        padding-bottom: 19%;
-    }
+  :nth-child(3) {
+    width: 82%;
+    // width: 30%;
+  }
 
-    :nth-child(3) {
-        width: 82%;
-        // width: 30%;
-    }
+  :nth-child(4) {
+    width: 79%;
+    // width: 29%;
+  }
 
-    :nth-child(4) {
-        width: 79%;
-        // width: 29%;
-    }
-
-    :nth-child(5) {
-        width: 75%;
-        // width: 27.8%;
-    }
+  :nth-child(5) {
+    width: 75%;
+    // width: 27.8%;
+  }
 }
 
 .avatar {
-    opacity: 1;
-    transform: none;
-    transition: all 1s ease-in-out;
+  opacity: 1;
+  transform: none;
+  transition: all 1s ease-in-out;
 }
 
 .avatar.hide {
-    opacity: 0;
-    transform: translate(80px, -180px);
+  opacity: 0;
+  transform: translate(80px, -180px);
 }
 
 .fname.hidden {
-    background-image: url("../assets/heroL_andrew_black.png");
+  background-image: url("../assets/heroL_andrew_black.png");
 }
 @media screen and (min-width: 1000px) {
-    .hero.fname{
-        // padding-top: 12.64%;
-    }
 }
 </style>

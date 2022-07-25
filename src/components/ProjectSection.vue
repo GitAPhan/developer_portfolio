@@ -24,7 +24,7 @@
 <script>
 import ProjectDisplay from './ProjectDisplay.vue'
 import ProjectCarousel from './ProjectCarousel.vue'
-import ScrollMagic from 'scrollmagic'
+// import ScrollMagic from 'scrollmagic'
 export default {
     components: { ProjectDisplay, ProjectCarousel },
     name: 'project-section',
@@ -97,17 +97,17 @@ export default {
         }
     },
     mounted() {
-        var controller = new ScrollMagic.Controller();
-        // build scene only in lg screen mode
-        if (this.$mq === 'lg') {
-            new ScrollMagic.Scene({
-                triggerElement: '#hide',
-                offset: -400,
-                triggerHook: 1,
-            })
-                .setClassToggle(".projects_title", "hide")
-                .addTo(controller);
-        }
+        // var controller = new ScrollMagic.Controller();
+        // // build scene only in lg screen mode
+        // if (this.$mq === 'lg') {
+        //     new ScrollMagic.Scene({
+        //         triggerElement: '#hide',
+        //         offset: -400,
+        //         triggerHook: 1,
+        //     })
+        //         .setClassToggle(".projects_title", "hide")
+        //         .addTo(controller);
+        // }
     }
 }
 </script>

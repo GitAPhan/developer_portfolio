@@ -4,26 +4,24 @@
       <hero-message :color_state="0" class="main_hero" />
       <soft-skills ref="soft_skills" v-if="$mq === 'lg'" />
     </section>
-    <!-- <about-me v-if="$mq != 'lg'" />
-        <project-section v-else /> -->
+        <!-- <project-section v-if="$mq === 'lg'" /> -->
   </div>
 </template>
 
 <script>
 import HeroMessage from "@/components/HeroMessage.vue";
 import SoftSkills from "./SoftSkills.vue";
-// import AboutMe from "@/components/AboutMe.vue"
 // import ProjectSection from "./ProjectSection.vue"
 export default {
   name: "logo-left",
   components: {
     HeroMessage,
     SoftSkills,
-    // AboutMe,
     // ProjectSection,
   },
   methods: {
     resize_soft_skills(value) {
+        value = value + 85
       this.$refs.soft_skills.$el.style = "width: " + value.toString() + "px";
     },
   },
@@ -45,15 +43,13 @@ export default {
   display: inline-flex;
 }
 .main_hero.hero_message {
-  // position: relative;
   justify-self: center;
-  align-self: center;
-  // top: 20%;
-  // left: 1%;
-  width: 60%;
+  align-self: start;
+  margin-top: 15%;
+  width: 80%;
   padding-left: 8%;
-  // max-width: 250px;
-  // min-width: 160px;
+//   height: 70%;
+  max-width: 250px;
 }
 .left_logo {
   height: 100%;
@@ -61,30 +57,25 @@ export default {
 @media screen and (min-width: 1000px) {
   .left_logo {
     position: relative;
-    // min-height: 475%;
+    min-height: 475%;
   }
   .main_left {
-    // position: sticky;
+    position: sticky;
     max-height: 768px;
-    // top: 0vh;
-    background-size: auto 100%;
-    // margin-bottom: 100%;
+    top: 0%;
+    // background-size: auto 100%;
+    margin-bottom: 100%;
   }
   .main_hero.hero_message {
-    // left: max(100px, 10%);
     max-width: 355px;
   }
   .main_left > .soft_skills {
-    // top: 64%;
-    // position: absolute;
-    /* left: max(100px, 10%); */
-    /* max-height: 21%; */
-    /* overflow: hidden; */
+    top: 50%;
+    position: absolute;
+    padding-left: 8%;
   }
   /* also in ProjectSection */
   .projects {
-    // position: relative;
-    // top: 60%;
   }
 }
 </style>

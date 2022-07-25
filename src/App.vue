@@ -29,7 +29,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 * {
   padding: 0px;
   margin: 0px;

@@ -2,8 +2,9 @@
   <div class="outer-view d-flex justify-center align-center">
     <div class="inner-view main">
       <logo-left />
-      <!-- <logo-right />
-      <project-section v-if="$mq != 'lg'" />
+    <about-me v-if="$mq != 'lg'" />
+      <logo-right />
+      <!-- <project-section v-if="$mq != 'lg'" />
       <Contact-section class="contact_section" /> -->
     </div>
   </div>
@@ -11,14 +12,16 @@
 
 <script>
 import LogoLeft from "./LogoLeft.vue";
-// import LogoRight from './LogoRight.vue';
+import AboutMe from "@/components/AboutMe.vue"
+import LogoRight from './LogoRight.vue';
 // import ProjectSection from './ProjectSection.vue';
 // import ContactSection from './ContactSection.vue';
 export default {
   name: "main-container",
   components: {
     LogoLeft,
-    // LogoRight,
+    AboutMe,
+    LogoRight,
     // ProjectSection,
     // ContactSection,
   },
@@ -34,6 +37,7 @@ export default {
 .main {
   height: 100%;
   width: 100%;
+    overflow-y: scroll;
 }
 // .logo {
 //   height: 100%;
@@ -50,7 +54,6 @@ export default {
     // width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
-    overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
