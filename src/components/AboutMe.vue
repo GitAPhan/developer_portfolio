@@ -5,9 +5,7 @@
                 <h1>"Take risks now and do something bold. You won't regret it"</h1>
                 <figcaption>- Elon Musk</figcaption>
             </figure> -->
-      <!-- <p>Hi, I'm Andrew Phan. A recent graduate of a coding bootcamp receiving a Full-Stack Development Diploma. From my very first "Hello World!", a whole new world seemed to open up all around me. </p> -->
-      <!-- <p>Growing up, I was always fascinated about technology and figuring how it works. I would spend my childhood taking apart anything electronic just to see if I can learn how it ticks and then put it back together (most of the time). I would still rememeber feeling a sense of accomplishment when I was able to see it working again and getting away with my perfect little crime. -->
-      <!-- </p> -->
+      <!-- <p>I'm a recent graduate of Innotech College from their Full-Stack Development Diploma program. Thanks to them, I got a taste of what the development world looks like. Curiosity was a huge </p> -->
       <p>
         The first time I wrote "Hello World!". A whole new world of
         possibilities opened up to me. <br />The second time I wrote it. I was

@@ -13,13 +13,18 @@
     <v-avatar class="avatar" :size="avatar_size + 40">
       <img alt="Avatar" src="../assets/hero_picture.png" />
     </v-avatar>
+    <soft-skills class="soft-skills"/>
   </div>
 </template>
 
 <script>
 import ScrollMagic from "scrollmagic";
+import SoftSkills from "@/components/SoftSkills.vue";
 export default {
   name: "hero-message",
+  components: {
+    SoftSkills,
+  },
   data() {
     return {
       avatar_size: undefined,
@@ -34,18 +39,31 @@ export default {
     // scroll magic for avatar disappearing
     if (this.$mq === "lg") {
       var controller = new ScrollMagic.Controller();
-      // var fname = this.$refs.fname
       // build scenes
       new ScrollMagic.Scene({
         triggerElement: "#avatar_trigger",
-        offset: 50,
-        triggerHook: 0.85,
+        offset: 150,
+        triggerHook: 0.8,
       })
         .setClassToggle(".avatar", "hide") // add class toggle
         .addTo(controller);
       new ScrollMagic.Scene({
         triggerElement: "#avatar_trigger",
-        offset: 250,
+        offset: 200,
+        triggerHook: 0.85,
+      })
+        .setClassToggle(".avatar", "disappear") // add class toggle
+        .addTo(controller);
+      new ScrollMagic.Scene({
+        triggerElement: "#avatar_trigger",
+        offset: 275,
+        triggerHook: 0.85,
+      })
+        .setClassToggle(".soft-skills", "reappear") // add class toggle
+        .addTo(controller);
+      new ScrollMagic.Scene({
+        triggerElement: "#avatar_trigger",
+        offset: 210,
         triggerHook: 0.8,
       })
         .setClassToggle(".fname", "hidden") // add class toggle
@@ -90,7 +108,7 @@ export default {
     width: 100%;
   }
 
-  :nth-child(2) {
+  .fname {
     width: 94%;
     height: 0px;
     position: relative;
@@ -104,18 +122,21 @@ export default {
 
   :nth-child(3) {
     width: 82%;
-    // width: 30%;
   }
 
   :nth-child(4) {
     width: 79%;
-    // width: 29%;
   }
 
   :nth-child(5) {
     width: 75%;
-    // width: 27.8%;
   }
+}
+.soft-skills{
+  width: 70%;
+  .reappear {
+  display: grid;
+}
 }
 
 .avatar {
@@ -128,10 +149,16 @@ export default {
   opacity: 0;
   transform: translate(80px, -180px);
 }
+.disappear {
+  display: none;
+}
 
 .fname.hidden {
   background-image: url("../assets/heroL_andrew_black.png");
 }
-@media screen and (min-width: 1000px) {
+@media screen and (max-width: 1000px) {
+  .soft-skills {
+    display: none;
+  }
 }
 </style>
