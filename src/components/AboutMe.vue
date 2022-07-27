@@ -5,12 +5,13 @@
                 <h1>"Take risks now and do something bold. You won't regret it"</h1>
                 <figcaption>- Elon Musk</figcaption>
             </figure> -->
-      <!-- <p>I'm a recent graduate of Innotech College from their Full-Stack Development Diploma program. Thanks to them, I got a taste of what the development world looks like. Curiosity was a huge </p> -->
+      <p>I'm a recent graduate of Innotech College from their Full-Stack Development Diploma program. Thanks to them, I got a taste of what the development world looks like and I was
+        absolutely hooked!</p>
       <p>
-        The first time I wrote "Hello World!". A whole new world of
-        possibilities opened up to me. <br />The second time I wrote it. I was
-        absolutely hooked! <br />Finally, my curiousity which I thought
-        disappeared came back running full force and I just couldn't get enough.
+        Since graduating from a coding bootcamp and receiving my Full-Stack
+          Development Diploma. I have played around with building different
+          applications using JavaScript, VueJS, Python, Flask and MySQL just to
+          name a few.
       </p>
     </section>
   </div>
@@ -56,4 +57,4 @@ export default {
     background-color: var(--v-primary);
   }
 }
-</style>
+</style>120

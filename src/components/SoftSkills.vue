@@ -24,8 +24,8 @@ export default {
             for (var i = 0; i < revealElements.length; i++) { // create a scene for each element
                 new ScrollMagic.Scene({
                     triggerElement: '#avatar_trigger', // y value not modified, so we can use element as trigger as well
-                    offset: 200 + (i * 35),
-                    triggerHook: 0.9,
+                    offset: 150 + (i * 35),
+                    triggerHook: 0.5,
                 })
                     .setClassToggle(revealElements[i], "visible") // add class toggle
                     .addTo(controller);

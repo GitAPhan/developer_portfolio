@@ -2,22 +2,19 @@
   <div class="left_logo">
     <section class="main_left">
       <hero-message :color_state="0" class="main_hero" />
-      <!-- <soft-skills ref="soft_skills" v-if="$mq === 'lg'" /> -->
     </section>
-    <!-- <project-section v-if="$mq === 'lg'" /> -->
+    <project-section v-if="$mq === 'lg'" />
   </div>
 </template>
 
 <script>
 import HeroMessage from "@/components/HeroMessage.vue";
-// import SoftSkills from "./SoftSkills.vue";
-// import ProjectSection from "./ProjectSection.vue"
+import ProjectSection from "./ProjectSection.vue"
 export default {
   name: "logo-left",
   components: {
     HeroMessage,
-    // SoftSkills,
-    // ProjectSection,
+    ProjectSection,
   },
   methods: {
     resize_soft_skills(value) {
@@ -55,18 +52,19 @@ export default {
   max-width: 250px;
 }
 .left_logo {
-  height: 100%;
+  height: 100vh;
 }
 @media screen and (min-width: 1000px) {
   .left_logo {
     position: relative;
+  height: 100%;
     min-height: 475%;
   }
   .main_left {
     position: sticky;
     max-height: 768px;
     top: 0%;
-    margin-bottom: 100%;
+    margin-bottom: 150%;
   }
   .main_hero.hero_message {
     margin-top: max(30%, 200px);

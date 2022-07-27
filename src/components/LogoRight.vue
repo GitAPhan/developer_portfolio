@@ -2,28 +2,21 @@
   <div class="logo_right">
     <about-me v-if="$mq === 'lg'" />
     <section id="avatar_trigger" class="logo main_right">
-      <!-- <tools-tech v-if="$mq != 'lg'" /> -->
+      <tools-tech v-if="$mq != 'lg'" />
     </section>
-    <!-- <section v-if="$mq === 'lg'" class="tech_quote">
-      <div class="quote">
-        <p>
-          Since graduating from a coding bootcamp and receiving my Full-Stack
-          Development Diploma. I have played around with building different
-          applications using JavaScript, VueJS, Python, Flask and MySQL just to
-          name a few.
-        </p>
-      </div>
-    </section> -->
+    <section v-if="$mq === 'lg'" class="tech_quote">
+      <tools-tech class="quote"/>
+    </section>
   </div>
 </template>
 
 <script>
 import ScrollMagic from "scrollmagic";
-// import ToolsTech from './ToolsTech.vue'
+import ToolsTech from './ToolsTech.vue'
 import AboutMe from "./AboutMe.vue";
 export default {
   components: {
-    // ToolsTech,
+    ToolsTech,
     AboutMe,
   },
   name: "logo-right",
@@ -33,9 +26,9 @@ export default {
       if (this.$mq === "lg") {
         var controller = new ScrollMagic.Controller();
         new ScrollMagic.Scene({
-          triggerElement: "#hide",
-          offset: -320,
-          triggerHook: 1,
+          triggerElement: "#avatar_trigger",
+          offset: -30,
+          triggerHook: 0,
         })
           .setClassToggle(".quote", "hide")
           .addTo(controller);
@@ -67,19 +60,19 @@ export default {
   }
   .tech_quote {
     position: sticky;
-    top: 0vh;
+    top: 0;
     height: 150%;
   }
   .quote {
     position: sticky;
-    top: 61vh;
+    top: 61%;
     transform: translateX(min(17%, 150px));
     opacity: 1;
     max-width: 70%;
     transition: all 0.4s ease-out;
   }
   .quote > p {
-    font-size: 20px;
+    font-size: 1vw;
   }
   .quote.hide {
     opacity: 0;

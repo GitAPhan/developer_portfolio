@@ -42,31 +42,31 @@ export default {
       // build scenes
       new ScrollMagic.Scene({
         triggerElement: "#avatar_trigger",
-        offset: 150,
-        triggerHook: 0.8,
+        offset: -150,
+        triggerHook: 0.5,
       })
         .setClassToggle(".avatar", "hide") // add class toggle
         .addTo(controller);
       new ScrollMagic.Scene({
         triggerElement: "#avatar_trigger",
-        offset: 200,
-        triggerHook: 0.85,
+        offset: -0,
+        triggerHook: 0.5,
       })
         .setClassToggle(".avatar", "disappear") // add class toggle
         .addTo(controller);
       new ScrollMagic.Scene({
         triggerElement: "#avatar_trigger",
-        offset: 275,
-        triggerHook: 0.85,
+        offset:150,
+        triggerHook: 0.5,
       })
         .setClassToggle(".soft-skills", "reappear") // add class toggle
         .addTo(controller);
       new ScrollMagic.Scene({
         triggerElement: "#avatar_trigger",
-        offset: 210,
-        triggerHook: 0.8,
+        offset:50,
+        triggerHook: 0.5,
       })
-        .setClassToggle(".fname", "hidden") // add class toggle
+        .setClassToggle(".fname", "blk") // add class toggle
         .addTo(controller);
     }
   },
@@ -153,7 +153,7 @@ export default {
   display: none;
 }
 
-.fname.hidden {
+.fname.blk {
   background-image: url("../assets/heroL_andrew_black.png");
 }
 @media screen and (max-width: 1000px) {
