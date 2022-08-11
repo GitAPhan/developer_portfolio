@@ -2,10 +2,10 @@
   <div class="outer-view d-flex justify-center align-center">
     <div class="inner-view main">
       <logo-left />
-    <about-me v-if="$mq != 'lg'" />
+      <about-me v-if="$mq != 'lg'" />
       <logo-right />
-      <!-- <project-section v-if="$mq != 'lg'" />
-      <Contact-section class="contact_section" /> -->
+      <project-section v-if="$mq != 'lg'" />
+      <!-- <Contact-section class="contact_section" /> -->
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 import LogoLeft from "./LogoLeft.vue";
 import AboutMe from "@/components/AboutMe.vue"
 import LogoRight from './LogoRight.vue';
-// import ProjectSection from './ProjectSection.vue';
+import ProjectSection from './ProjectSection.vue';
 // import ContactSection from './ContactSection.vue';
 export default {
   name: "main-container",
@@ -22,7 +22,7 @@ export default {
     LogoLeft,
     AboutMe,
     LogoRight,
-    // ProjectSection,
+    ProjectSection,
     // ContactSection,
   },
 };
@@ -35,9 +35,9 @@ export default {
 }
 /* logo-left & logo-right */
 .main {
-  height: 100%;
+  height: 100vh;
   width: 100%;
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 // .logo {
 //   height: 100%;
@@ -50,7 +50,9 @@ export default {
   .main {
     // position: relative;
     max-width: 1366px;
+
     max-height: 768px;
+    aspect-ratio: 16/9;
     // width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;

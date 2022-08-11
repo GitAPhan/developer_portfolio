@@ -112,10 +112,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .projects {
     background-color: var(--v-secondary);
-    position: relative;
+    // position: relative;
     place-items: center;
     height: 100vh;
     max-width: 100%;
@@ -147,22 +147,19 @@ export default {
 
 @media screen and (min-width: 1000px) {
     .projects {
-        // max-height: 100vh;
         background-color: var(--v-primary);
-        grid-template-rows: auto 1fr;
-        // overflow-y: scroll;
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
+        height: fit-content;
+        display: inline-block;
 
         /* Firefox */
         >h1 {
             position: sticky;
-            padding: 0px 5px 5px;
-            margin: 0;
-            top: 14.99vh;
-            justify-self: end;
-            background-color: var(--v-primary);
+            padding: 0px ;
+            margin: 0 0 0 5% ;
+            top: 14.99%;
+            justify-self: start;
+            // background-color: var(--v-primary);
+            text-shadow: 3px 3px 5px var(--v-primary);
             z-index: 10;
         }
     }

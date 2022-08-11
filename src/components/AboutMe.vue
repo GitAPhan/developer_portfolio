@@ -14,6 +14,9 @@
           name a few.
       </p>
     </section>
+    <section class="about_me">
+      
+    </section>
   </div>
 </template>
 

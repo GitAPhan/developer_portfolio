@@ -7,6 +7,7 @@
     <section v-if="$mq === 'lg'" class="tech_quote">
       <tools-tech class="quote"/>
     </section>
+    
   </div>
 </template>
 
