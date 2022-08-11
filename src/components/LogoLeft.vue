@@ -16,20 +16,20 @@ export default {
     HeroMessage,
     ProjectSection,
   },
-  methods: {
-    resize_soft_skills(value) {
-      value = value + 85;
-      this.$refs.soft_skills.$el.style = "width: " + value.toString() + "px";
-    },
-  },
-  mounted() {
-    if (this.$mq === "lg") {
-      this.$root.$on("avatar_resize", this.resize_soft_skills);
-    }
-  },
-  destroyed() {
-    this.$root.$off("avatar_resize", this.resize_soft_skills);
-  },
+  // methods: {
+  //   resize_soft_skills(value) {
+  //     value = value + 85;
+  //     this.$refs.soft_skills. = "width: " + value.toString() + "px";
+  //   },
+  // },
+  // mounted() {
+  //   if (this.$mq === "lg") {
+  //     this.$root.$on("avatar_resize", this.resize_soft_skills);
+  //   }
+  // },
+  // destroyed() {
+  //   this.$root.$off("avatar_resize", this.resize_soft_skills);
+  // },
 };
 </script>
 

@@ -13,7 +13,7 @@
     <v-avatar class="avatar" :size="avatar_size + 40">
       <img alt="Avatar" src="../assets/hero_picture.png" />
     </v-avatar>
-    <soft-skills class="soft-skills"/>
+    <soft-skills width="400px" ref="" class="soft-skills"/>
   </div>
 </template>
 
@@ -70,20 +70,8 @@ export default {
         .addTo(controller);
     }
   },
-  created() {
-    window.addEventListener("resize", this.avatarSize);
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.avatarSize);
-  },
   methods: {
     avatarSize() {
-      if (this.$mq === "lg") {
-        this.$root.$emit(
-          "avatar_resize",
-          this.$refs.developer.clientWidth * 0.8
-        );
-      }
       this.avatar_size = Math.round(this.$refs.developer.clientWidth * 0.69);
     },
     change_fname_color: function () {
