@@ -63,6 +63,7 @@ img {
   top: 12%;
   transition: all 1s ease-in-out;
   padding: 5%;
+  z-index: 9;
 }
 .top_row {
   margin: 10% 0;

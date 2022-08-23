@@ -14,9 +14,6 @@
           name a few.
       </p>
     </section>
-    <section class="about_me">
-      
-    </section>
   </div>
 </template>
 
@@ -55,7 +52,7 @@ export default {
   }
 
   .about_me_container {
-    max-height: 769px;
+    max-height: min(900px, 100vh);
     height: 100%;
     background-color: var(--v-primary);
   }

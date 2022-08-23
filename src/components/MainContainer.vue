@@ -49,15 +49,15 @@ export default {
 @media screen and (min-width: 1000px) {
   .main {
     // position: relative;
-    max-width: 1366px;
+    max-width: min(1600px, 100vw);
 
-    max-height: 768px;
-    aspect-ratio: 16/9;
+    max-height: min(900px, 100vh);
     // width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    padding: 20px;
   }
   .main::-webkit-scrollbar {
     display: none;

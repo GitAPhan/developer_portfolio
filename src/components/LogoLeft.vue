@@ -42,19 +42,19 @@ export default {
 }
 @media screen and (min-width: 1000px) {
   .left_logo {
-    position: relative;
+    position: grid;
     height: 100%;
     min-height: 550%;
   }
   .main_left {
     height: 100%;
     position: sticky;
-    max-height: 768px;
+    max-height: min(900px, 100vh);
     top: 0%;
-    margin-bottom: 150%;
+    margin-bottom: min(1350px, 150vh);
   }
   .main_hero.hero_message {
-    margin-top: max(30%, 200px);
+    margin-top: max(calc(400px - 25%), 200px);
     width: 40%;
     margin-left: 15%;
     max-width: 355px;

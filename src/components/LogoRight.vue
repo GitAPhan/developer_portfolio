@@ -3,6 +3,7 @@
     <about-me v-if="$mq === 'lg'" />
     <section id="avatar_trigger" class="logo main_right">
       <tools-tech v-if="$mq != 'lg'" />
+    <span id="tech_trigger"/>
     </section>
     <section v-if="$mq === 'lg'" class="tech_quote">
       <tools-tech class="quote"/>
@@ -27,8 +28,8 @@ export default {
       if (this.$mq === "lg") {
         var controller = new ScrollMagic.Controller();
         new ScrollMagic.Scene({
-          triggerElement: "#avatar_trigger",
-          offset: -30,
+          triggerElement: "#tech_trigger",
+          offset: 100,
           triggerHook: 0,
         })
           .setClassToggle(".quote", "hide")
@@ -44,7 +45,7 @@ export default {
   background-image: url("../assets/logo_right.png");
   background-position: left;
   height: 100%;
-  max-height: 768px;
+  max-height: min(900px, 100vh);
   background-size: auto 70%;
 }
 .logo_right {
@@ -63,11 +64,14 @@ export default {
     position: sticky;
     top: 0;
     height: 100%;
+    max-height: min(900px, 100vh);
+    // padding-bottom: 250%;
   }
   .quote {
     position: sticky;
-    top: 61%;
-    transform: translateX(min(17%, 150px));
+    top: 62.5%;
+    // transform: translateX(min(calc(150px - 20%), 150px));
+    transform: translateX(80px);
     opacity: 1;
     max-width: 70%;
     transition: all 0.4s ease-out;

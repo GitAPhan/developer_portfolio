@@ -48,23 +48,25 @@
         </v-slide-item>
       </v-slide-group>
     </v-sheet>
-    <!-- <project-display v-else :project="projects[proj_id]" /> -->
-    <section class="project"></section>
-    <section class="project"></section>
-    <section class="project"></section>
-    <section class="project"></section>
+    <project-display v-else :project="projects[proj_id]" />
+    <div class="project_section">
+      <section id="project_trigger1" class="project"></section>
+      <section id="project_trigger2" class="project"></section>
+      <section id="project_trigger3" class="project"></section>
+      <section id="project_trigger4" class="project"></section>
+    </div>
   </div>
 </template>
 
 <script>
-// import ProjectDisplay from "./ProjectDisplay.vue";
+import ProjectDisplay from "./ProjectDisplay.vue";
 import ProjectCarousel from "./ProjectCarousel.vue";
 // import ScrollMagic from "scrollmagic";
 export default {
-  components: { 
-    // ProjectDisplay, 
-    ProjectCarousel 
-    },
+  components: {
+    ProjectDisplay,
+    ProjectCarousel,
+  },
   name: "project-section",
   data() {
     return {
@@ -212,7 +214,7 @@ export default {
 
   row-gap: 10px;
 }
-section {
+.project_section {
   display: none;
 }
 
@@ -232,9 +234,11 @@ section {
 
 @media screen and (min-width: 1000px) {
   .projects {
-    background-color: var(--v-primary);
-    height: 400%;
-    display: inline-block;
+    // background-color: var(--v-primary);
+    background-color: rgb(0, 0, 255, 0);
+    height: 100%;
+    max-height: min(2700px, 300vh);
+    display: block;
 
     > h1 {
       position: sticky;
@@ -245,10 +249,20 @@ section {
       text-shadow: 3px 3px 5px var(--v-primary);
       z-index: 10;
     }
-    .project {
-      position: static;
+    .project_section {
+      display: grid;
       height: 100%;
+      grid-auto-rows: 1fr 1fr 1fr 1fr;
+    }
+    .project {
+      position: relative;
+      display: block;
+      height: 100%;
+      max-height: min(450px, 50vh);
       width: 100%;
+      border: 4px black solid;
+      background-color: red;
+      // z-index: -1;
     }
   }
 
