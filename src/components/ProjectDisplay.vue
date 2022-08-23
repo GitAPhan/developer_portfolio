@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="project_display">
     <article>
       <h3 class="project_title">{{ project.name }}</h3>
       <div class="project_info">
@@ -45,10 +45,9 @@ img {
   max-width: 25vw;
 }
 .project_title {
-  position: sticky;
+  position: relative;
   text-align: right;
-  top: 16.75%;
-  padding-bottom: 15%;
+  padding-bottom: 5%;
 }
 .project_trigger {
   position: relative;
@@ -58,12 +57,12 @@ img {
   position: relative;
 }
 
-article {
-  position: relative;
+.project_display {
+  position: sticky;
+  height: 0;
+  top: 12%;
   transition: all 1s ease-in-out;
   padding: 5%;
-  height: 100vh;
-  padding-bottom: 25%;
 }
 .top_row {
   margin: 10% 0;

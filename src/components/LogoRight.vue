@@ -52,7 +52,7 @@ export default {
 }
 @media screen and (min-width: 1000px) {
   .logo_right {
-    min-height: 475%;
+    min-height: 550%;
   }
   .main_right {
     position: sticky;
@@ -62,7 +62,7 @@ export default {
   .tech_quote {
     position: sticky;
     top: 0;
-    height: 150%;
+    height: 100%;
   }
   .quote {
     position: sticky;

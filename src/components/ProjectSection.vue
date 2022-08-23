@@ -1,8 +1,6 @@
 <template>
-  <div class="projects">
-    <h1 id="project_trigger" class="projects_title" @click="model_value">
-      Projects:
-    </h1>
+  <div id="project_trigger" class="projects">
+    <h1 class="projects_title" @click="change_project_view">Projects:</h1>
     <project-carousel
       class="highlighted_project"
       v-if="model != null"
@@ -50,16 +48,23 @@
         </v-slide-item>
       </v-slide-group>
     </v-sheet>
-    <project-display class="project" :project="projects[proj_id]" />
+    <!-- <project-display v-else :project="projects[proj_id]" /> -->
+    <section class="project"></section>
+    <section class="project"></section>
+    <section class="project"></section>
+    <section class="project"></section>
   </div>
 </template>
 
 <script>
-import ProjectDisplay from "./ProjectDisplay.vue";
+// import ProjectDisplay from "./ProjectDisplay.vue";
 import ProjectCarousel from "./ProjectCarousel.vue";
-import ScrollMagic from "scrollmagic";
+// import ScrollMagic from "scrollmagic";
 export default {
-  components: { ProjectDisplay, ProjectCarousel },
+  components: { 
+    // ProjectDisplay, 
+    ProjectCarousel 
+    },
   name: "project-section",
   data() {
     return {
@@ -77,8 +82,11 @@ export default {
               "Scavenger Hunt is a game where the players would hunt for checkpoints in the form of qr codes placed by the game master within the game area.These checkpoints would have challenges that the players would complete in order to obtain points and tokens.Tokens can be traded for hints of the checkpoint locations or for more points.Only points are calculated in the end to determine the winner.",
             tech: "This full-stack application was built using the frontend framework VueJs with the help of the Vuetify library to make it look pretty. I used Flask and Python for the backend and MariaDb for all my database needs.",
           },
-          live_link: "https://github.com/GitAPhan/scavenger_hunt_frontend",
-          github_link: "https://github.com/GitAPhan/scavenger_hunt_backend",
+          live_link: "https://scavenger.ga",
+          github_link: [
+            "https://github.com/GitAPhan/scavenger_hunt_backend",
+            "https://github.com/GitAPhan/scavenger_hunt_frontend",
+          ],
           screenshot:
             "http://fakeimg.pl/300x200/#d6cfcf/#464545?text=website&font=lobster",
         },
@@ -93,8 +101,11 @@ export default {
               "A Twitter-clone application that includes authentication, user profile management, tweet posts, follows of profiles and likes of tweets and comments.",
             tech: "This full-stack application was built using the frontend framework VueJs, Flask and Python was used to build the api, and MariaDb was used for the database. Deployed using Google cloud platform",
           },
-          live_link: "https://github.com/GitAPhan/tweeter-project",
-          github_link: "https://github.com/GitAPhan/tweeter_project_backend",
+          // live_link: ,
+          github_link: [
+            "https://github.com/GitAPhan/tweeter_project_backend",
+            "https://github.com/GitAPhan/tweeter-project",
+          ],
           screenshot:
             "https://dummyimage.com/300x200/d6cfcf/464545.jpg?text=screenshot",
         },
@@ -124,7 +135,7 @@ export default {
               "Built as part of a solo hackathon. We were given 8 hours and tasked to build a Pokemon battle simulator.",
             tech: "This frontend application was built using HTML5, SASS and JavaScript.",
           },
-          live_link: "http://live_link.com",
+          live_link: "http://battlemon.ml",
           github_link:
             "https://github.com/GitAPhan/Classic_Pokemon_Battle_Hackathon",
           screenshot: "http://unsplash.it/g/300/200?random&gravity=center",
@@ -143,28 +154,42 @@ export default {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       console.log("changing theme");
     },
-    change_project_view: function () {
-        console.log('change project view')
+    change_project_view: function (event) {
+      console.log("change project view", event.type);
       this.proj_id += 1;
-      if (this.proj_id === 3) {
+      if (this.proj_id === 4) {
         this.proj_id = 0;
       }
     },
   },
   mounted() {
-    var controller = new ScrollMagic.Controller();
-    // build scene only in lg screen mode
-    this.$nextTick(() => {
-      if (this.$mq === "lg") {
-        new ScrollMagic.Scene({
-          triggerElement: "#project_trigger",
-          offset: 0,
-          triggerHook: .5,
-        })
-          .on('change project display info', this.change_project_view)
-          .addTo(controller);
-      }
-    });
+    // if (this.$mq === "lg") {
+    //   var controller = new ScrollMagic.Controller();
+    //   // build scene only in lg screen mode
+    //   // this.$nextTick(() => {
+    //     new ScrollMagic.Scene({
+    //       triggerElement: "#project_trigger",
+    //       triggerHook: 0,
+    //       offset: 200,
+    //     })
+    //       .on("enter leave", this.change_project_view)
+    //       .addTo(controller);
+    //     new ScrollMagic.Scene({
+    //       triggerElement: "#project_trigger",
+    //       triggerHook: 0,
+    //       offset: 600,
+    //     })
+    //       .on("enter leave", this.change_project_view)
+    //       .addTo(controller);
+    //     new ScrollMagic.Scene({
+    //       triggerElement: "#project_trigger",
+    //       triggerHook: 0,
+    //       offset: 1000,
+    //     })
+    //       .on("enter leave", this.change_project_view)
+    //       .addTo(controller);
+    //   // });
+    // }
   },
 };
 </script>
@@ -177,7 +202,7 @@ export default {
   height: 100vh;
   width: 100%;
   display: grid;
-  padding: 10px 0px;
+  padding: 10px 0px 20px;
   grid-template-rows: auto 1fr auto;
 
   > h1 {
@@ -186,6 +211,9 @@ export default {
   }
 
   row-gap: 10px;
+}
+section {
+  display: none;
 }
 
 .highlighted_project {
@@ -205,24 +233,23 @@ export default {
 @media screen and (min-width: 1000px) {
   .projects {
     background-color: var(--v-primary);
-    height: 100%;
+    height: 400%;
     display: inline-block;
 
-    /* Firefox */
     > h1 {
       position: sticky;
       padding: 0px;
       margin: 0 0 0 5%;
       top: 14.99%;
       justify-self: start;
-      // background-color: var(--v-primary);
       text-shadow: 3px 3px 5px var(--v-primary);
       z-index: 10;
     }
-  }
-  .project {
-    position: sticky;
-    top: 0%;
+    .project {
+      position: static;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   .projects::-webkit-scrollbar {
@@ -236,7 +263,6 @@ export default {
   }
 
   .projects_title.hide {
-    // opacity: 0;
     transform: translate(100px, -100px);
   }
 }

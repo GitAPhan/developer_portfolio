@@ -16,20 +16,6 @@ export default {
     HeroMessage,
     ProjectSection,
   },
-  // methods: {
-  //   resize_soft_skills(value) {
-  //     value = value + 85;
-  //     this.$refs.soft_skills. = "width: " + value.toString() + "px";
-  //   },
-  // },
-  // mounted() {
-  //   if (this.$mq === "lg") {
-  //     this.$root.$on("avatar_resize", this.resize_soft_skills);
-  //   }
-  // },
-  // destroyed() {
-  //   this.$root.$off("avatar_resize", this.resize_soft_skills);
-  // },
 };
 </script>
 
@@ -57,10 +43,11 @@ export default {
 @media screen and (min-width: 1000px) {
   .left_logo {
     position: relative;
-  height: 100%;
-    min-height: 475%;
+    height: 100%;
+    min-height: 550%;
   }
   .main_left {
+    height: 100%;
     position: sticky;
     max-height: 768px;
     top: 0%;

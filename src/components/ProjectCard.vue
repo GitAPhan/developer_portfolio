@@ -8,7 +8,7 @@
             <p v-for="desc in project.description" :key="desc">{{ desc }}</p>
             <img :src="project.screenshot" />
             <v-card-actions class="pa-0">
-                <v-btn color="anchor" :href="project.github_link" text>github</v-btn>
+                <v-btn v-for="link in project.github_link" color="anchor" :href="link" :key="link" text>github</v-btn>
                 <!-- live link button to only be present if value is not undefined -->
                 <v-btn v-if="project.live_link != undefined" color="anchor" :href="project.live_link" text>demo</v-btn>
             </v-card-actions>
