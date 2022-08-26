@@ -48,29 +48,29 @@ export default {
   max-height: min(900px, 100vh);
   background-size: auto 70%;
 }
-.logo_right {
-  // height: 100%;
+@media screen and (max-width: 1000px) {.logo_right {
+  height: 100vh;
+}
+  
 }
 @media screen and (min-width: 1000px) {
   .logo_right {
-    min-height: 550%;
+    height: 100%;
   }
   .main_right {
     position: sticky;
     top: 0;
-    // background-size: auto 100%;
+    // padding-bottom: 50%;
   }
   .tech_quote {
     position: sticky;
     top: 0;
     height: 100%;
     max-height: min(900px, 100vh);
-    // padding-bottom: 250%;
   }
   .quote {
     position: sticky;
     top: 62.5%;
-    // transform: translateX(min(calc(150px - 20%), 150px));
     transform: translateX(80px);
     opacity: 1;
     max-width: 70%;

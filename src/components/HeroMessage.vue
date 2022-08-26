@@ -13,7 +13,7 @@
     <v-avatar class="avatar" :size="avatar_size + 40">
       <img alt="Avatar" src="../assets/hero_picture.png" />
     </v-avatar>
-    <soft-skills width="400px" ref="" class="soft-skills"/>
+    <soft-skills v-if="color_state != 2" width="400px" ref="" class="soft-skills"/>
   </div>
 </template>
 

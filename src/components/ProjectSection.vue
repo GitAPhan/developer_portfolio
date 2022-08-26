@@ -177,7 +177,7 @@ export default {
         new ScrollMagic.Scene({
           triggerElement: "#project_trigger",
           triggerHook: 0.5,
-          offset: 200,
+          offset: 150,
         })
           .setClassToggle(".project_display", "appear")
           .addTo(controller);
@@ -255,9 +255,10 @@ export default {
 @media screen and (min-width: 1000px) {
   .projects {
     background-color: var(--v-primary);
-    height: 100%;
-    max-height: min(1800px, 200vh);
+    // height: 100%;
+    height: min(1800px, 200vh);
     row-gap: 0px;
+    padding-bottom: min(900px, 100vh);
 
     > h1 {
       position: sticky;

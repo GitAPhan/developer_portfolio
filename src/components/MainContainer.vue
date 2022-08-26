@@ -5,7 +5,7 @@
       <about-me v-if="$mq != 'lg'" />
       <logo-right />
       <project-section v-if="$mq != 'lg'" />
-      <!-- <Contact-section class="contact_section" /> -->
+      <Contact-section class="contact_section" />
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ import LogoLeft from "./LogoLeft.vue";
 import AboutMe from "@/components/AboutMe.vue"
 import LogoRight from './LogoRight.vue';
 import ProjectSection from './ProjectSection.vue';
-// import ContactSection from './ContactSection.vue';
+import ContactSection from './ContactSection.vue';
 export default {
   name: "main-container",
   components: {
@@ -23,7 +23,7 @@ export default {
     AboutMe,
     LogoRight,
     ProjectSection,
-    // ContactSection,
+    ContactSection,
   },
 };
 </script>
@@ -63,6 +63,7 @@ export default {
     display: none;
   }
   .contact_section {
+    // margin-top: 300%;
     grid-column: span 2;
   }
 }
