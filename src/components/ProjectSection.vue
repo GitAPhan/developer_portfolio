@@ -48,7 +48,7 @@
         </v-slide-item>
       </v-slide-group>
     </v-sheet>
-    <project-display v-else :project="projects[proj_id]" />
+    <project-display class="project_display" v-else :project="projects[proj_id]" />
     <div class="project_section">
       <section id="project_trigger1" class="project"></section>
       <section id="project_trigger2" class="project"></section>
@@ -61,7 +61,7 @@
 <script>
 import ProjectDisplay from "./ProjectDisplay.vue";
 import ProjectCarousel from "./ProjectCarousel.vue";
-// import ScrollMagic from "scrollmagic";
+import ScrollMagic from "scrollmagic";
 export default {
   components: {
     ProjectDisplay,
@@ -81,19 +81,34 @@ export default {
             intro:
               "For this project, I had to come up with an idea for an app/website, design the database, api and frontend and build a minimum viable product of it. My main challenge was that I wanted to build a unique app to not only showcase my knowledge but also demonstrate my creativity and passion for thinking outside-the-box. When I hung out with friends I would love to come up with different games to entertain and pass the time (although they are all mainly drinking games).  I thought for this project I would bring that part of me along for the journey. Also, because of the recent pandemic, I have felt fairly detached from human interactions that aren’t virtual. So I preferred to build an app that would complement actual physical interactions and facilitate building connections.",
             synopsis:
-              "Scavenger Hunt is a game where the players would hunt for checkpoints in the form of qr codes placed by the game master within the game area.These checkpoints would have challenges that the players would complete in order to obtain points and tokens.Tokens can be traded for hints of the checkpoint locations or for more points.Only points are calculated in the end to determine the winner.",
+              "Scavenger Hunt is an interactive game where the players would hunt for checkpoints in the form of qr codes placed by the game master within the game area.These checkpoints would have challenges that the players would complete in order to obtain points and tokens.Tokens can be traded for hints of the checkpoint locations or for more points.Only points are calculated in the end to determine the winner.",
             tech: "This full-stack application was built using the frontend framework VueJs with the help of the Vuetify library to make it look pretty. I used Flask and Python for the backend and MariaDb for all my database needs.",
           },
           live_link: "https://scavenger.ga",
           github_link: [
-            "https://github.com/GitAPhan/scavenger_hunt_backend",
             "https://github.com/GitAPhan/scavenger_hunt_frontend",
+            "https://github.com/GitAPhan/scavenger_hunt_backend",
           ],
           screenshot:
             "http://fakeimg.pl/300x200/#d6cfcf/#464545?text=website&font=lobster",
         },
         {
           id: 2,
+          name: "Okotoks Pizza",
+          tech: ["HTML5", "SASS"],
+          description: {
+            intro:
+              "This project was used to develop my requirements gathering, prototyping, SEO and mobile responsiveness skills",
+            synopsis:
+              "A consumer-facing website with the focus to drive traffic to learn about the staff and the history of the restaurant, view the menu, and seek contact details to call, email or visit the store",
+            tech: "This frontend application was build using only HTML5 and SASS. Deployed using Google Cloud Platform(GCP) and Apache",
+          },
+          live_link: "https://okpizza.ml",
+          github_link: ["https://github.com/GitAPhan/OkotoksPizza"],
+          screenshot: "http://loremflickr.com/g/300/200/website",
+        },
+        {
+          id: 3,
           name: "Tweeter",
           tech: ["VueJs", "Python", "Flask", "MariaDb"],
           description: {
@@ -105,26 +120,11 @@ export default {
           },
           // live_link: ,
           github_link: [
-            "https://github.com/GitAPhan/tweeter_project_backend",
             "https://github.com/GitAPhan/tweeter-project",
+            "https://github.com/GitAPhan/tweeter_project_backend",
           ],
           screenshot:
             "https://dummyimage.com/300x200/d6cfcf/464545.jpg?text=screenshot",
-        },
-        {
-          id: 3,
-          name: "Okotoks Pizza",
-          tech: ["HTML5", "SASS"],
-          description: {
-            intro:
-              "This project was used to develop my requirements gathering, prototyping, SEO and mobile responsiveness skills",
-            synopsis:
-              "A consumer-facing website with the focus to drive traffic to learn about the staff and the history of the restaurant, view the menu, and seek contact details to call, email or visit the store",
-            tech: "This frontend application was build using only HTML5 and SASS. Deployed using Google Cloud Platform(GCP) and Apache",
-          },
-          live_link: "https://okpizza.ml",
-          github_link: "https://github.com/GitAPhan/OkotoksPizza",
-          screenshot: "http://loremflickr.com/g/300/200/website",
         },
         {
           id: 4,
@@ -139,7 +139,7 @@ export default {
           },
           live_link: "http://battlemon.ml",
           github_link:
-            "https://github.com/GitAPhan/Classic_Pokemon_Battle_Hackathon",
+            ["https://github.com/GitAPhan/Classic_Pokemon_Battle_Hackathon"],
           screenshot: "http://unsplash.it/g/300/200?random&gravity=center",
         },
       ],
@@ -165,33 +165,47 @@ export default {
     },
   },
   mounted() {
-    // if (this.$mq === "lg") {
-    //   var controller = new ScrollMagic.Controller();
-    //   // build scene only in lg screen mode
-    //   // this.$nextTick(() => {
-    //     new ScrollMagic.Scene({
-    //       triggerElement: "#project_trigger",
-    //       triggerHook: 0,
-    //       offset: 200,
-    //     })
-    //       .on("enter leave", this.change_project_view)
-    //       .addTo(controller);
-    //     new ScrollMagic.Scene({
-    //       triggerElement: "#project_trigger",
-    //       triggerHook: 0,
-    //       offset: 600,
-    //     })
-    //       .on("enter leave", this.change_project_view)
-    //       .addTo(controller);
-    //     new ScrollMagic.Scene({
-    //       triggerElement: "#project_trigger",
-    //       triggerHook: 0,
-    //       offset: 1000,
-    //     })
-    //       .on("enter leave", this.change_project_view)
-    //       .addTo(controller);
-    //   // });
-    // }
+    if (this.$mq === "lg") {
+      var controller = new ScrollMagic.Controller();
+      // build scene only in lg screen mode
+      this.$nextTick(() => {
+        new ScrollMagic.Scene({
+          triggerElement: "#project_trigger",
+          triggerHook: .5,
+          offset: 200,
+        })
+          .setClassToggle(".project_display", "appear")
+          .addTo(controller);
+      });
+        new ScrollMagic.Scene({
+          triggerElement: "#project_trigger1",
+          triggerHook: 0,
+          offset: 150,
+        })
+          .on("enter leave", this.change_project_view)
+          .addTo(controller);
+        new ScrollMagic.Scene({
+          triggerElement: "#project_trigger2",
+          triggerHook: 0,
+          offset: 100,
+        })
+          .on("enter leave", this.change_project_view)
+          .addTo(controller);
+        // new ScrollMagic.Scene({
+        //   triggerElement: "#project_trigger3",
+        //   triggerHook: 0,
+        //   offset: 50,
+        // })
+        //   .on("enter leave", this.change_project_view)
+        //   .addTo(controller);
+        new ScrollMagic.Scene({
+          triggerElement: "#project_trigger3",
+          triggerHook: 0,
+          offset: 50,
+        })
+          .removeClassToggle(true)
+          .addTo(controller);
+    }
   },
 };
 </script>
@@ -234,11 +248,10 @@ export default {
 
 @media screen and (min-width: 1000px) {
   .projects {
-    // background-color: var(--v-primary);
-    background-color: rgb(0, 0, 255, 0);
+    background-color: var(--v-primary);
     height: 100%;
-    max-height: min(2700px, 300vh);
-    display: block;
+    max-height: min(1800px, 200vh);
+    // display: block;
 
     > h1 {
       position: sticky;
@@ -258,12 +271,19 @@ export default {
       position: relative;
       display: block;
       height: 100%;
-      max-height: min(450px, 50vh);
+      // max-height: min(450px, 50vh);
       width: 100%;
-      border: 4px black solid;
-      background-color: red;
       // z-index: -1;
     }
+  }
+  .project_display {
+    // display: none;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .project_display.appear {
+    // display: block;
+    opacity: 1;
   }
 
   .projects::-webkit-scrollbar {

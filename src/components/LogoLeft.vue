@@ -43,7 +43,7 @@ export default {
 @media screen and (min-width: 1000px) {
   .left_logo {
     position: grid;
-    height: 100%;
+    // height: 100%;
     min-height: 550%;
   }
   .main_left {

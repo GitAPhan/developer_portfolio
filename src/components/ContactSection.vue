@@ -71,6 +71,9 @@ export default {
             justify-self: end;
         }
     }
+    .footer {
+        height: 100vh;
+    }
 }
 @media screen and (min-width: 1000px) {
     .hero_message.contact_hero {
@@ -81,6 +84,7 @@ export default {
         }
     }
     .footer {
+        position: relative;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: none;
         column-gap: 20px;

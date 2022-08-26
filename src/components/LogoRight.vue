@@ -49,7 +49,7 @@ export default {
   background-size: auto 70%;
 }
 .logo_right {
-  height: 100%;
+  // height: 100%;
 }
 @media screen and (min-width: 1000px) {
   .logo_right {
