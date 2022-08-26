@@ -48,7 +48,11 @@
         </v-slide-item>
       </v-slide-group>
     </v-sheet>
-    <project-display class="project_display" v-else :project="projects[proj_id]" />
+    <project-display
+      class="project_display"
+      v-else
+      :project="projects[proj_id]"
+    />
     <div class="project_section">
       <section id="project_trigger1" class="project"></section>
       <section id="project_trigger2" class="project"></section>
@@ -138,8 +142,9 @@ export default {
             tech: "This frontend application was built using HTML5, SASS and JavaScript.",
           },
           live_link: "http://battlemon.ml",
-          github_link:
-            ["https://github.com/GitAPhan/Classic_Pokemon_Battle_Hackathon"],
+          github_link: [
+            "https://github.com/GitAPhan/Classic_Pokemon_Battle_Hackathon",
+          ],
           screenshot: "http://unsplash.it/g/300/200?random&gravity=center",
         },
       ],
@@ -171,40 +176,42 @@ export default {
       this.$nextTick(() => {
         new ScrollMagic.Scene({
           triggerElement: "#project_trigger",
-          triggerHook: .5,
+          triggerHook: 0.5,
           offset: 200,
         })
           .setClassToggle(".project_display", "appear")
           .addTo(controller);
       });
+      new ScrollMagic.Scene({
+        triggerElement: "#project_trigger1",
+        triggerHook: 0,
+        offset: 150,
+      })
+        .on("enter leave", this.change_project_view)
+        .addTo(controller);
+      new ScrollMagic.Scene({
+        triggerElement: "#project_trigger2",
+        triggerHook: 0,
+        offset: 100,
+      })
+        .on("enter leave", this.change_project_view)
+        .addTo(controller);
+      new ScrollMagic.Scene({
+        triggerElement: "#project_trigger3",
+        triggerHook: 0,
+        offset: 50,
+      })
+        .on("enter leave", this.change_project_view)
+        .addTo(controller);
+      this.$nextTick(() => {
         new ScrollMagic.Scene({
-          triggerElement: "#project_trigger1",
+          triggerElement: "#project_trigger4",
           triggerHook: 0,
-          offset: 150,
+          offset: 0,
         })
-          .on("enter leave", this.change_project_view)
+          .setClassToggle(".project_display", "disappear")
           .addTo(controller);
-        new ScrollMagic.Scene({
-          triggerElement: "#project_trigger2",
-          triggerHook: 0,
-          offset: 100,
-        })
-          .on("enter leave", this.change_project_view)
-          .addTo(controller);
-        // new ScrollMagic.Scene({
-        //   triggerElement: "#project_trigger3",
-        //   triggerHook: 0,
-        //   offset: 50,
-        // })
-        //   .on("enter leave", this.change_project_view)
-        //   .addTo(controller);
-        new ScrollMagic.Scene({
-          triggerElement: "#project_trigger3",
-          triggerHook: 0,
-          offset: 50,
-        })
-          .removeClassToggle(true)
-          .addTo(controller);
+      });
     }
   },
 };
@@ -220,13 +227,12 @@ export default {
   display: grid;
   padding: 10px 0px 20px;
   grid-template-rows: auto 1fr auto;
+  row-gap: 10px;
 
   > h1 {
     justify-self: start;
     margin: 0px 5%;
   }
-
-  row-gap: 10px;
 }
 .project_section {
   display: none;
@@ -251,7 +257,7 @@ export default {
     background-color: var(--v-primary);
     height: 100%;
     max-height: min(1800px, 200vh);
-    // display: block;
+    row-gap: 0px;
 
     > h1 {
       position: sticky;
@@ -284,6 +290,10 @@ export default {
   .project_display.appear {
     // display: block;
     opacity: 1;
+  }
+  .appear.disappear {
+    // display: block;
+    opacity: 0;
   }
 
   .projects::-webkit-scrollbar {

@@ -4,7 +4,7 @@
     <div class="project_info">
       <section class="top_row">
         <v-img
-          max-width="200px"
+          class="project_img"
           :src="project.screenshot"
           alt="website screenshot"
         />
@@ -52,8 +52,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-img {
-  max-width: 30vw;
+.project_img {
+  width: min(450px, 30vw);
 }
 .project_title {
   position: relative;
@@ -72,9 +72,7 @@ img {
   position: fixed;
   height: 100%;
   width: min(50vw, 900px);
-  overflow: hidden;
-  top: 13.7%;
-  left: max(0, calc((100vw - 1650px) / 2));
+  top: max(13.7%, calc((100vh - 850px) / 2));
   transition: all 1s ease-in-out;
   padding: 5%;
   z-index: 9;
@@ -85,26 +83,20 @@ img {
   place-items: center;
 }
 .mid_row {
-  position: relative;
-  display: grid;
-  // grid-template-columns: auto;
-  grid-auto-flow: column;
-  // overflow: hidden;
-  width: max(calc(50vw - 50px), 400px);
-  // max-width: 100%;
-  place-items: center;
-  column-gap: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center;
+  column-gap: 10px;
 }
 .bot_row {
-  margin: 10% 0;
+  margin: 10 % 0;
 }
 
 .tech_chip {
   pointer-events: auto;
   border: 2px var(--v-text) solid;
   border-radius: 5px;
-  padding: 0px 5px;
-  display: inline-block;
+  padding: 2px 5px;
   color: var(--v-anchor);
 }
 </style>
