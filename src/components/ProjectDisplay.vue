@@ -3,27 +3,30 @@
     <h3 class="project_title">{{ project.name }}</h3>
     <div class="project_info">
       <section class="top_row">
-        <v-img
-          class="project_img"
-          :src="project.screenshot"
-          alt="website screenshot"
-        />
+        <v-carousel
+          
+          height="400"
+          hide-delimiter-background
+          show-arrows-on-hover
+        >
+          <v-carousel-item v-for="image in project.screenshot" :key="image">
+            <v-sheet height="100%">
+              <v-row class="fill-height" align="center" justify="center">
+                <img
+                  :src='`${image["large"]}`'
+                />
+              </v-row>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
       </section>
       <section class="mid_row">
         <p class="tech_chip" v-if="'live_link' in project">
           <a :href="project.live_link">Demo</a>
         </p>
-        <p
-          class="tech_chip"
-          v-for="git in project.github_link"
-          :key="git"
-        >
+        <p class="tech_chip" v-for="git in project.github_link" :key="git">
           <a :href="git">GitHub</a>
         </p>
-        <!-- <p
-          class="tech_chip"
-          v-if="'live_link' in project"
-          ><a :href="project.live_link">GITHUB</a></p> -->
         <p
           class="tech_chip"
           v-for="tag in project.tech"

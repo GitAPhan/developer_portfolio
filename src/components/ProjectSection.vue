@@ -26,7 +26,7 @@
             width="150px"
             @click="toggle"
           >
-            <v-img
+            <!-- <v-img
               v-if="!active"
               class="accent--text"
               width="100%"
@@ -35,7 +35,7 @@
               <v-card-title class="justify-center project_card_title">{{
                 proj.name
               }}</v-card-title>
-            </v-img>
+            </v-img> -->
             <v-scale-transition>
               <v-icon
                 v-if="active"
@@ -93,8 +93,12 @@ export default {
             "https://github.com/GitAPhan/scavenger_hunt_frontend",
             "https://github.com/GitAPhan/scavenger_hunt_backend",
           ],
-          screenshot:
-            "http://fakeimg.pl/300x200/#d6cfcf/#464545?text=website&font=lobster",
+          screenshot: [
+            {
+              large: "@/assets/scavenger-large.gif",
+              small: "../assets/scavenger-small.gif",
+            },
+          ],
         },
         {
           id: 2,
@@ -109,7 +113,20 @@ export default {
           },
           live_link: "https://okpizza.ml",
           github_link: ["https://github.com/GitAPhan/OkotoksPizza"],
-          screenshot: "http://loremflickr.com/g/300/200/website",
+          screenshot: [
+            {
+              large: "../assets/okpizza-mobile-large.gif",
+              small: "../assets/okpizza-mobile-small.gif",
+            },
+            {
+              large: "../assets/okpizza-tablet-large.gif",
+              small: "../assets/okpizza-tablet-small.gif",
+            },
+            {
+              large: "../assets/okpizza-large.png",
+              small: "../assets/okpizza-small.png",
+            },
+          ],
         },
         {
           id: 3,
@@ -127,8 +144,16 @@ export default {
             "https://github.com/GitAPhan/tweeter-project",
             "https://github.com/GitAPhan/tweeter_project_backend",
           ],
-          screenshot:
-            "https://dummyimage.com/300x200/d6cfcf/464545.jpg?text=screenshot",
+          screenshot: [
+            {
+              large: "../assets/tweeter.gif",
+              small: "../assets/tweeter.gif",
+            },
+            {
+              large: "../assets/Tweeter-database-relations.png",
+              small: "../assets/Tweeter-database-relations.png",
+            },
+          ],
         },
         {
           id: 4,
@@ -145,7 +170,20 @@ export default {
           github_link: [
             "https://github.com/GitAPhan/Classic_Pokemon_Battle_Hackathon",
           ],
-          screenshot: "http://unsplash.it/g/300/200?random&gravity=center",
+          screenshot: [
+            {
+              large: "../assets/battlemon-0-large.gif",
+              small: "../assets/battlemon-0-small.gif",
+            },
+            {
+              large: "../assets/battlemon-1-large.gif",
+              small: "../assets/battlemon-1-small.gif",
+            },
+            {
+              large: "../assets/battlemon-2-large.gif",
+              small: "../assets/battlemon-2-small.gif",
+            },
+          ],
         },
       ],
     };
@@ -163,10 +201,14 @@ export default {
     },
     change_project_view: function (event) {
       console.log("change project view", event.type);
-      this.proj_id += 1;
-      if (this.proj_id === 4) {
-        this.proj_id = 0;
+      if (event.type === "enter") {
+        this.proj_id += 1;
+      } else if (event.type === "leave") {
+        this.proj_id -= 1;
       }
+      // if (this.proj_id === 4) {
+      //   this.proj_id = 0;
+      // }
     },
   },
   mounted() {
