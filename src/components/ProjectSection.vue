@@ -22,27 +22,23 @@
           <v-card
             :color="'anchor'"
             class="ma-1 d-flex align-center justify-center"
-            height="100px"
-            width="150px"
+            height="40px"
+            width="100px"
             @click="toggle"
           >
-            <!-- <v-img
+            <v-icon
               v-if="!active"
-              class="accent--text"
-              width="100%"
-              :src="proj.screenshot"
-            >
-              <v-card-title class="justify-center project_card_title">{{
-                proj.name
-              }}</v-card-title>
-            </v-img> -->
+              color="primary"
+              size="28">{{proj.icon}}</v-icon>
+            
+
             <v-scale-transition>
               <v-icon
                 v-if="active"
                 color="anchor"
                 size="28"
                 v-text="'mdi-check-circle-outline'"
-              ></v-icon>
+              />
             </v-scale-transition>
           </v-card>
         </v-slide-item>
@@ -93,12 +89,7 @@ export default {
             "https://github.com/GitAPhan/scavenger_hunt_frontend",
             "https://github.com/GitAPhan/scavenger_hunt_backend",
           ],
-          screenshot: [
-            {
-              large: "@/assets/scavenger-large.gif",
-              small: "../assets/scavenger-small.gif",
-            },
-          ],
+          icon: "mdi-magnify",
         },
         {
           id: 2,
@@ -113,20 +104,7 @@ export default {
           },
           live_link: "https://okpizza.ml",
           github_link: ["https://github.com/GitAPhan/OkotoksPizza"],
-          screenshot: [
-            {
-              large: "../assets/okpizza-mobile-large.gif",
-              small: "../assets/okpizza-mobile-small.gif",
-            },
-            {
-              large: "../assets/okpizza-tablet-large.gif",
-              small: "../assets/okpizza-tablet-small.gif",
-            },
-            {
-              large: "../assets/okpizza-large.png",
-              small: "../assets/okpizza-small.png",
-            },
-          ],
+          icon: "mdi-pizza",
         },
         {
           id: 3,
@@ -144,16 +122,7 @@ export default {
             "https://github.com/GitAPhan/tweeter-project",
             "https://github.com/GitAPhan/tweeter_project_backend",
           ],
-          screenshot: [
-            {
-              large: "../assets/tweeter.gif",
-              small: "../assets/tweeter.gif",
-            },
-            {
-              large: "../assets/Tweeter-database-relations.png",
-              small: "../assets/Tweeter-database-relations.png",
-            },
-          ],
+          icon: "mdi-twitter",
         },
         {
           id: 4,
@@ -170,20 +139,7 @@ export default {
           github_link: [
             "https://github.com/GitAPhan/Classic_Pokemon_Battle_Hackathon",
           ],
-          screenshot: [
-            {
-              large: "../assets/battlemon-0-large.gif",
-              small: "../assets/battlemon-0-small.gif",
-            },
-            {
-              large: "../assets/battlemon-1-large.gif",
-              small: "../assets/battlemon-1-small.gif",
-            },
-            {
-              large: "../assets/battlemon-2-large.gif",
-              small: "../assets/battlemon-2-small.gif",
-            },
-          ],
+          icon: "mdi-pokemon-go",
         },
       ],
     };
@@ -291,7 +247,7 @@ export default {
 }
 
 .project_card_title {
-  font-size: 1em;
+  // font-size: .7em;
 }
 
 @media screen and (min-width: 1000px) {

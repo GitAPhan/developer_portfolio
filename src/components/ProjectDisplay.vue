@@ -3,20 +3,33 @@
     <h3 class="project_title">{{ project.name }}</h3>
     <div class="project_info">
       <section class="top_row">
-        <v-carousel
-          
-          height="400"
-          hide-delimiter-background
-          show-arrows-on-hover
-        >
-          <v-carousel-item v-for="image in project.screenshot" :key="image">
-            <v-sheet height="100%">
-              <v-row class="fill-height" align="center" justify="center">
-                <img
-                  :src='`${image["large"]}`'
-                />
-              </v-row>
-            </v-sheet>
+        <v-carousel height="23vh" style="max-height: 300px; pointer-events: auto;" cycle hide-delimiters show-arrows-on-hover>
+          <v-carousel-item v-if="project.id === 1">
+            <v-img contain width="100%" height="100%" src="@/assets/scavenger-large.gif" />
+          </v-carousel-item>
+          <v-carousel-item v-if="project.id === 2">
+            <v-img contain width="100%" height="100%" src="@/assets/okpizza-mobile-large.gif" />
+          </v-carousel-item>
+          <v-carousel-item v-if="project.id === 2">
+            <v-img contain width="100%" height="100%" src="@/assets/okpizza-tablet-large.gif" />
+          </v-carousel-item>
+          <v-carousel-item v-if="project.id === 2">
+            <v-img contain width="100%" height="100%" src="@/assets/okpizza-large.png" />
+          </v-carousel-item>
+          <v-carousel-item v-if="project.id === 3">
+            <v-img contain width="100%" height="100%" src="@/assets/tweeter.gif" />
+          </v-carousel-item>
+          <v-carousel-item v-if="project.id === 3">
+            <v-img contain width="100%" height="100%" src="@/assets/Tweeter-database-relations.png" />
+          </v-carousel-item>
+          <v-carousel-item v-if="project.id === 4">
+            <v-img contain width="100%" height="100%" src="@/assets/battlemon-0-large.gif" />
+          </v-carousel-item>
+          <v-carousel-item v-if="project.id === 4">
+            <v-img contain width="100%" height="100%" src="@/assets/battlemon-1-large.gif" />
+          </v-carousel-item>
+          <v-carousel-item v-if="project.id === 4">
+            <v-img contain width="100%" height="100%" src="@/assets/battlemon-2-large.gif" />
           </v-carousel-item>
         </v-carousel>
       </section>
@@ -69,12 +82,13 @@ export default {
 }
 .project_info {
   position: relative;
+  max-height: min(100vh, 900px);
 }
 
 .project_display {
   position: fixed;
   height: 100%;
-  width: min(50vw, 900px);
+  width: min(50vw, 800px);
   top: max(13.7%, calc((100vh - 850px) / 2));
   transition: all 1s ease-in-out;
   padding: 5%;
@@ -82,8 +96,6 @@ export default {
 }
 .top_row {
   margin: 10% 0;
-  display: grid;
-  place-items: center;
 }
 .mid_row {
   display: flex;
