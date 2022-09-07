@@ -3,8 +3,8 @@
     <about-me v-if="$mq === 'lg'" />
     <section id="avatar_trigger" class="logo main_right">
       <tools-tech v-if="$mq != 'lg'" />
-    <span id="tech_trigger"/>
     </section>
+    <span id="tech_trigger"/>
     <section v-if="$mq === 'lg'" class="tech_quote">
       <tools-tech class="quote"/>
     </section>
@@ -54,6 +54,9 @@ export default {
   
 }
 @media screen and (min-width: 1000px) {
+  #tech_trigger {
+    scroll-margin: 40vh;
+  }
   .logo_right {
     height: 100%;
   }

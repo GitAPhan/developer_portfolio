@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div id="footer" class="footer">
     <!-- soft skills and logo -->
     <section class="soft_logo">
       <soft-skills class="soft_skills" v-if="$mq != 'lg'" />

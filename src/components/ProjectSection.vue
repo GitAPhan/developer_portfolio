@@ -12,6 +12,7 @@
       color="primary"
       elevation="8"
       width="100vw"
+      style="margin-bottom: 15px;"
     >
       <v-slide-group v-model="model" mandatory show-arrows>
         <v-slide-item
@@ -81,7 +82,7 @@ export default {
             intro:
               "For this project, I had to come up with an idea for an app/website, design the database, api and frontend and build a minimum viable product of it. My main challenge was that I wanted to build a unique app to not only showcase my knowledge but also demonstrate my creativity and passion for thinking outside-the-box. When I hung out with friends I would love to come up with different games to entertain and pass the time (although they are all mainly drinking games).  I thought for this project I would bring that part of me along for the journey. Also, because of the recent pandemic, I have felt fairly detached from human interactions that aren’t virtual. So I preferred to build an app that would complement actual physical interactions and facilitate building connections.",
             synopsis:
-              "Scavenger Hunt is an interactive game where the players would hunt for checkpoints in the form of qr codes placed by the game master within the game area.These checkpoints would have challenges that the players would complete in order to obtain points and tokens.Tokens can be traded for hints of the checkpoint locations or for more points.Only points are calculated in the end to determine the winner.",
+              "Scavenger Hunt is an interactive game where players would hunt for checkpoints in the form of qr codes placed by the game master within the game area. These checkpoints would have challenges that the players would complete in order to obtain points and tokens. Tokens can be traded for hints of the checkpoint locations or for more points. Only points are calculated in the end to determine the winner.",
             tech: "This full-stack application was built using the frontend framework VueJs with the help of the Vuetify library to make it look pretty. I used Flask and Python for the backend and MariaDb for all my database needs.",
           },
           live_link: "https://scavenger.ga",
@@ -94,12 +95,12 @@ export default {
         {
           id: 2,
           name: "Okotoks Pizza",
-          tech: ["HTML5", "SASS"],
+          tech: ["HTML5", "SCSS"],
           description: {
             intro:
               "This project was used to develop my requirements gathering, prototyping, SEO and mobile responsiveness skills",
             synopsis:
-              "A consumer-facing website with the focus to drive traffic to learn about the staff and the history of the restaurant, view the menu, and seek contact details to call, email or visit the store",
+              "A consumer-facing website with the focus to drive traffic to learn about the staff and the history of the restaurant, view the menu, and seek contact details to call, email or visit the store. This project was used to develop my requirements gathering, prototyping, SEO and mobile responsiveness skills.",
             tech: "This frontend application was build using only HTML5 and SASS. Deployed using Google Cloud Platform(GCP) and Apache",
           },
           live_link: "https://okpizza.ml",
@@ -117,7 +118,6 @@ export default {
               "A Twitter-clone application that includes authentication, user profile management, tweet posts, follows of profiles and likes of tweets and comments.",
             tech: "This full-stack application was built using the frontend framework VueJs, Flask and Python was used to build the api, and MariaDb was used for the database. Deployed using Google cloud platform",
           },
-          // live_link: ,
           github_link: [
             "https://github.com/GitAPhan/tweeter-project",
             "https://github.com/GitAPhan/tweeter_project_backend",
@@ -127,12 +127,12 @@ export default {
         {
           id: 4,
           name: "Pokemon Battle Simulator",
-          tech: ["HTML5", "SASS", "JavaScript"],
+          tech: ["HTML5", "SCSS", "JavaScript"],
           description: {
             intro:
               "For this turn-based application, users are able to select their desired pokemon. They will be able to see their pokemon’s health, attack options and mana, as well as the enemy pokemon and their health.",
             synopsis:
-              "Built as part of a solo hackathon. We were given 8 hours and tasked to build a Pokemon battle simulator.",
+              "For this turn-based application, users are able to select their desired pokemon to battle with. sers will be able to see their pokemon’s health, attack options and mana, as well as the enemy pokemon and their health. Built as part of a solo hackathon, we were given 8 hours and tasked to build a Pokemon battle simulator.",
             tech: "This frontend application was built using HTML5, SASS and JavaScript.",
           },
           live_link: "http://battlemon.ml",
@@ -183,14 +183,14 @@ export default {
       new ScrollMagic.Scene({
         triggerElement: "#project_trigger1",
         triggerHook: 0,
-        offset: 150,
+        offset: 50,
       })
         .on("enter leave", this.change_project_view)
         .addTo(controller);
       new ScrollMagic.Scene({
         triggerElement: "#project_trigger2",
         triggerHook: 0,
-        offset: 100,
+        offset: 50,
       })
         .on("enter leave", this.change_project_view)
         .addTo(controller);
@@ -205,7 +205,7 @@ export default {
         new ScrollMagic.Scene({
           triggerElement: "#project_trigger4",
           triggerHook: 0,
-          offset: 0,
+          offset: 50,
         })
           .setClassToggle(".project_display", "disappear")
           .addTo(controller);
@@ -244,10 +244,6 @@ export default {
   padding: 15px;
   place-items: center;
   background-color: var(--v-primary);
-}
-
-.project_card_title {
-  // font-size: .7em;
 }
 
 @media screen and (min-width: 1000px) {
@@ -308,5 +304,17 @@ export default {
   .projects_title.hide {
     transform: translate(100px, -100px);
   }
+  // #project_trigger1:target {
+  //   scroll-margin-top: 70px;
+  // }
+  // #project_trigger2:target {
+  //   scroll-margin-top: -70px;
+  // }
+  // #project_trigger3:target {
+  //   scroll-margin-top: -70px;
+  // }
+  // #project_trigger4:target {
+  //   scroll-margin-top: -10px;
+  // }
 }
 </style>
