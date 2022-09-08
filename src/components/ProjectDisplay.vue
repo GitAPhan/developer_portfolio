@@ -1,7 +1,7 @@
 <template>
   <div class="project_display">
-    <h3 class="project_title">{{ project.name }}</h3>
     <div class="project_info">
+    <h3 class="project_title">{{ project.name }}</h3>
       <section class="top_row">
         <v-carousel height="23vh" style="max-height: 300px; pointer-events: auto;" cycle hide-delimiters show-arrows-on-hover>
           <v-carousel-item v-if="project.id === 1">
@@ -73,8 +73,9 @@ export default {
 }
 .project_title {
   position: relative;
+  place-self: end end;
   text-align: right;
-  padding-bottom: 5%;
+  padding: 5% 0%;
 }
 .project_trigger {
   position: relative;
@@ -82,20 +83,24 @@ export default {
 }
 .project_info {
   position: relative;
-  max-height: min(100vh, 900px);
+  width: min(45vw, 720px);
+  max-height: min(70vh, 630px);
 }
 
 .project_display {
   position: fixed;
+  display: grid;
+  place-items: center;
   height: 100%;
-  width: min(50vw, 800px);
-  top: max(13.7%, calc((100vh - 850px) / 2));
+  width: min(45vw, 720px);
+  // width: min(40vw, 640px);
+  top: 0%;
+  // left: max(2.5%, calc(2.5% + (50vh - 800px)));
   transition: all 1s ease-in-out;
-  padding: 5%;
   z-index: 9;
 }
 .top_row {
-  margin: 10% 0;
+  margin: 5% 0;
 }
 .mid_row {
   display: flex;
@@ -104,7 +109,7 @@ export default {
   column-gap: 10px;
 }
 .bot_row {
-  margin: 10 % 0;
+  margin: 5% 0;
 }
 
 .tech_chip {

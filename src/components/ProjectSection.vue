@@ -142,6 +142,8 @@ export default {
           icon: "mdi-pokemon-go",
         },
       ],
+      window_height: window.innerHeight,
+      offset_trigger: window.innerHeight > 900 ? -50 - ((window.innerHeight - 900) / 2): -50,
     };
   },
   computed: {
@@ -156,7 +158,7 @@ export default {
       console.log("changing theme");
     },
     change_project_view: function (event) {
-      console.log("change project view", event.type);
+      console.log("change project view", event.type, this.offset_trigger);
       if (event.type === "enter") {
         this.proj_id += 1;
       } else if (event.type === "leave") {
@@ -175,7 +177,7 @@ export default {
         new ScrollMagic.Scene({
           triggerElement: "#project_trigger",
           triggerHook: 0.5,
-          offset: 150,
+          offset: 250,
         })
           .setClassToggle(".project_display", "appear")
           .addTo(controller);
@@ -183,21 +185,21 @@ export default {
       new ScrollMagic.Scene({
         triggerElement: "#project_trigger1",
         triggerHook: 0,
-        offset: 50,
+        offset: this.offset_trigger,
       })
         .on("enter leave", this.change_project_view)
         .addTo(controller);
       new ScrollMagic.Scene({
         triggerElement: "#project_trigger2",
         triggerHook: 0,
-        offset: 50,
+        offset: this.offset_trigger,
       })
         .on("enter leave", this.change_project_view)
         .addTo(controller);
       new ScrollMagic.Scene({
         triggerElement: "#project_trigger3",
         triggerHook: 0,
-        offset: 50,
+        offset: this.offset_trigger,
       })
         .on("enter leave", this.change_project_view)
         .addTo(controller);
@@ -205,7 +207,7 @@ export default {
         new ScrollMagic.Scene({
           triggerElement: "#project_trigger4",
           triggerHook: 0,
-          offset: 50,
+          offset: this.offset_trigger,
         })
           .setClassToggle(".project_display", "disappear")
           .addTo(controller);
@@ -257,7 +259,7 @@ export default {
     > h1 {
       position: sticky;
       padding: 0px;
-      margin: 0 0 0 5%;
+      margin: 0 0 0 4%;
       top: 14.99%;
       justify-self: start;
       text-shadow: 3px 3px 5px var(--v-primary);
@@ -304,17 +306,17 @@ export default {
   .projects_title.hide {
     transform: translate(100px, -100px);
   }
-  // #project_trigger1:target {
-  //   scroll-margin-top: 70px;
-  // }
-  // #project_trigger2:target {
-  //   scroll-margin-top: -70px;
-  // }
-  // #project_trigger3:target {
-  //   scroll-margin-top: -70px;
-  // }
-  // #project_trigger4:target {
-  //   scroll-margin-top: -10px;
-  // }
+  #project_trigger1:target {
+    scroll-margin-top: 100px;
+  }
+  #project_trigger2:target {
+    scroll-margin-top: 100px;
+  }
+  #project_trigger3:target {
+    scroll-margin-top: 100px;
+  }
+  #project_trigger4:target {
+    scroll-margin-top: 100px;
+  }
 }
 </style>

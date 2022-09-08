@@ -28,9 +28,9 @@ export default {
       if (this.$mq === "lg") {
         var controller = new ScrollMagic.Controller();
         new ScrollMagic.Scene({
-          triggerElement: "#tech_trigger",
+          triggerElement: "#footer",
           offset: 100,
-          triggerHook: 0,
+          triggerHook: 1,
         })
           .setClassToggle(".quote", "hide")
           .addTo(controller);

@@ -6,6 +6,7 @@
       absolute
       color="rbga(0, 0, 0, 0.0)"
       dark
+      hide-on-scroll
       scroll-target="#scrolling-techniques-4"
     >
       <a href="#about_me">about me</a>
@@ -23,9 +24,7 @@
       <logo-right />
       <project-section v-if="$mq != 'lg'" />
       <Contact-section class="contact_section" />
-      <a :href="'#project_trigger' + test" class="down_arrow"
-        ><v-icon>mdi-arrow-down-thick</v-icon></a
-      >
+      <a :href="test" class="nav_arrow down"><v-icon>mdi-arrow-down-thick</v-icon></a>
       <!-- <v-icon class="down_arrow" @click="scroll_down">mdi-arrow-down-thick</v-icon> -->
     </div>
   </div>
@@ -58,10 +57,17 @@ export default {
       sect.scrollTo({ top: scrollHeight, behavior: "smooth" });
       console.log(scrollHeight);
     },
+    please() {
+      console.log(document.querySelector(".about_me_container"))
+      return "#project_trigger"
+    }
   },
   data() {
     return {
-      test: "",
+      test: this.please(),
+      location: {
+        "#about_me":  document.querySelector("#about_me"),
+      },
     };
   },
 };
@@ -81,16 +87,19 @@ export default {
   margin: auto;
   scroll-behavior: smooth;
 }
-.down_arrow {
+.nav_arrow {
   position: absolute;
-  bottom: 10px;
   left: calc(50vw - 12px);
   opacity: 0.5;
   transform: scale(1);
+  text-decoration: none;
 }
-.down_arrow:hover {
+.nav_arrow.down{
+  bottom: 10px;
+}
+.nav_arrow:hover {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.4);
 }
 @media screen and (min-width: 1000px) {
   #about_me {
@@ -116,7 +125,6 @@ export default {
     display: none;
   }
   .contact_section {
-    // margin-top: 300%;
     grid-column: span 2;
   }
 }
