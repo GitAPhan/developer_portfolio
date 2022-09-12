@@ -164,9 +164,6 @@ export default {
       } else if (event.type === "leave") {
         this.proj_id -= 1;
       }
-      // if (this.proj_id === 4) {
-      //   this.proj_id = 0;
-      // }
     },
   },
   mounted() {

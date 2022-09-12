@@ -1,35 +1,104 @@
 <template>
   <div class="project_display">
     <div class="project_info">
-    <h3 class="project_title">{{ project.name }}</h3>
+      <h3 class="project_title">{{ project.name }}</h3>
+      <div class="delimiter_container">
+        <a href="#project_trigger1"
+          ><v-icon v-if="project.id === 1">mdi-circle-slice-8</v-icon
+          ><v-icon v-else>mdi-circle-outline</v-icon></a
+        >
+        <a href="#project_trigger2"
+          ><v-icon v-if="project.id === 2">mdi-circle-slice-8</v-icon
+          ><v-icon v-else>mdi-circle-outline</v-icon></a
+        >
+        <a href="#project_trigger3"
+          ><v-icon v-if="project.id === 3">mdi-circle-slice-8</v-icon
+          ><v-icon v-else>mdi-circle-outline</v-icon></a
+        >
+        <a href="#project_trigger4"
+          ><v-icon v-if="project.id === 4">mdi-circle-slice-8</v-icon
+          ><v-icon v-else>mdi-circle-outline</v-icon></a
+        >
+      </div>
       <section class="top_row">
-        <v-carousel height="23vh" style="max-height: 300px; pointer-events: auto;" cycle hide-delimiters show-arrows-on-hover>
+        <v-carousel
+          height="23vh"
+          style="max-height: 300px; pointer-events: auto"
+          cycle
+          hide-delimiters
+          show-arrows-on-hover
+        >
           <v-carousel-item v-if="project.id === 1">
-            <v-img contain width="100%" height="100%" src="@/assets/scavenger-large.gif" />
+            <v-img
+              contain
+              width="100%"
+              height="100%"
+              src="@/assets/scavenger-large.gif"
+            />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 2">
-            <v-img contain width="100%" height="100%" src="@/assets/okpizza-mobile-large.gif" />
+            <v-img
+              contain
+              width="100%"
+              height="100%"
+              src="@/assets/okpizza-mobile-large.gif"
+            />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 2">
-            <v-img contain width="100%" height="100%" src="@/assets/okpizza-tablet-large.gif" />
+            <v-img
+              contain
+              width="100%"
+              height="100%"
+              src="@/assets/okpizza-tablet-large.gif"
+            />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 2">
-            <v-img contain width="100%" height="100%" src="@/assets/okpizza-large.png" />
+            <v-img
+              contain
+              width="100%"
+              height="100%"
+              src="@/assets/okpizza-large.png"
+            />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 3">
-            <v-img contain width="100%" height="100%" src="@/assets/tweeter.gif" />
+            <v-img
+              contain
+              width="100%"
+              height="100%"
+              src="@/assets/tweeter.gif"
+            />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 3">
-            <v-img contain width="100%" height="100%" src="@/assets/Tweeter-database-relations.png" />
+            <v-img
+              contain
+              width="100%"
+              height="100%"
+              src="@/assets/Tweeter-database-relations.png"
+            />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 4">
-            <v-img contain width="100%" height="100%" src="@/assets/battlemon-0-large.gif" />
+            <v-img
+              contain
+              width="100%"
+              height="100%"
+              src="@/assets/battlemon-0-large.gif"
+            />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 4">
-            <v-img contain width="100%" height="100%" src="@/assets/battlemon-1-large.gif" />
+            <v-img
+              contain
+              width="100%"
+              height="100%"
+              src="@/assets/battlemon-1-large.gif"
+            />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 4">
-            <v-img contain width="100%" height="100%" src="@/assets/battlemon-2-large.gif" />
+            <v-img
+              contain
+              width="100%"
+              height="100%"
+              src="@/assets/battlemon-2-large.gif"
+            />
           </v-carousel-item>
         </v-carousel>
       </section>
@@ -58,6 +127,12 @@
 <script>
 export default {
   name: "project-display",
+  data() {
+    return {
+      delimiter_icon:
+        this.project.id === 1 ? "mdi-circle-slice-8" : "mdi-circle-outline",
+    };
+  },
   props: {
     project: {
       type: Object,
@@ -68,18 +143,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.project_img {
-  width: min(450px, 30vw);
-}
 .project_title {
   position: relative;
   place-self: end end;
   text-align: right;
   padding: 5% 0%;
 }
-.project_trigger {
-  position: relative;
-  bottom: 0px;
+.delimiter_container {
+  position: fixed;
+  display: grid;
+  top: 50%;
+  margin-top: -72px;
+  right: 50%;
+  margin-right: -30px;
+  a {
+    text-decoration: none;
+    pointer-events: auto;
+    .v-icon {
+      color: var(--v-secondary);
+    }
+  }
 }
 .project_info {
   position: relative;
@@ -93,9 +176,7 @@ export default {
   place-items: center;
   height: 100%;
   width: min(45vw, 720px);
-  // width: min(40vw, 640px);
   top: 0%;
-  // left: max(2.5%, calc(2.5% + (50vh - 800px)));
   transition: all 1s ease-in-out;
   z-index: 9;
 }
@@ -113,10 +194,12 @@ export default {
 }
 
 .tech_chip {
-  pointer-events: auto;
   border: 2px var(--v-text) solid;
   border-radius: 5px;
   padding: 2px 5px;
   color: var(--v-anchor);
+  > a {
+    pointer-events: auto;
+  }
 }
 </style>

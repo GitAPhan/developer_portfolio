@@ -6,26 +6,29 @@
       absolute
       color="rbga(0, 0, 0, 0.0)"
       dark
-      hide-on-scroll
       scroll-target="#scrolling-techniques-4"
     >
       <a href="#about_me">about me</a>
-      <a href="#tech_trigger">tech stack</a>
-      <a href="#project_trigger1">projects1</a>
-      <a href="#project_trigger2">projects2</a>
-      <a href="#project_trigger3">projects3</a>
-      <a href="#project_trigger4">projects4</a>
+      <a href="#project_trigger">projects</a>
       <a href="#footer">contact</a>
     </v-app-bar>
-    <div id="scrolling-techniques-4" class="inner-view main">
+    <div
+      ref="main_container"
+      id="scrolling-techniques-4"
+      class="inner-view main"
+    >
       <span id="about_me" />
       <logo-left />
       <about-me v-if="$mq != 'lg'" />
       <logo-right />
       <project-section v-if="$mq != 'lg'" />
       <Contact-section class="contact_section" />
-      <a :href="test" class="nav_arrow down"><v-icon>mdi-arrow-down-thick</v-icon></a>
-      <!-- <v-icon class="down_arrow" @click="scroll_down">mdi-arrow-down-thick</v-icon> -->
+      <a :href="nav_link('down')" class="nav_arrow down"
+        ><v-icon>mdi-arrow-down-thick</v-icon></a
+      >
+      <a v-if="$mq != 'lg'" :href="nav_link('up')" class="nav_arrow up"
+        ><v-icon>mdi-arrow-up-thick</v-icon></a
+      >
     </div>
   </div>
 </template>
@@ -36,6 +39,7 @@ import AboutMe from "@/components/AboutMe.vue";
 import LogoRight from "./LogoRight.vue";
 import ProjectSection from "./ProjectSection.vue";
 import ContactSection from "./ContactSection.vue";
+import ScrollMagic from "scrollmagic";
 export default {
   name: "main-container",
   components: {
@@ -46,29 +50,98 @@ export default {
     ContactSection,
   },
   methods: {
-    scroll_down() {
-      let sect = document.querySelector(".main");
-      console.log(sect.scrollTop);
-      let pageHeight = sect.clientHeight;
-      let scrollHeight = pageHeight;
-      if (sect.scrollTop >= pageHeight) {
-        scrollHeight -= sect.clientHeight / 2;
+    add_to_ind: function (event) {
+      if (event.type === "enter") {
+        this.nav_link_indicator += 1;
+      } else if (event.type === "leave") {
+        this.nav_link_indicator -= 1;
       }
-      sect.scrollTo({ top: scrollHeight, behavior: "smooth" });
-      console.log(scrollHeight);
     },
-    please() {
-      console.log(document.querySelector(".about_me_container"))
-      return "#project_trigger"
-    }
+    nav_link: function (dir) {
+      if (this.$mq === "lg") {
+        return this.nav_link_location[this.nav_link_indicator];
+      } else {
+        if (dir === "down") {
+          return this.nav_link_location[this.nav_link_indicator - 5];
+        } else {
+          return this.nav_link_location[this.nav_link_indicator - 7];
+        }
+      }
+    },
   },
   data() {
     return {
-      test: this.please(),
-      location: {
-        "#about_me":  document.querySelector("#about_me"),
+      nav_link_indicator: 7,
+      nav_link_location: {
+        0: "#about_me",
+        1: "#about_me",
+        2: "#about_me_container",
+        3: "#avatar_trigger",
+        4: "#project_trigger",
+        5: "#footer",
+        6: "#about_me",
+        7: "#tech_trigger",
+        8: "#project_trigger",
+        9: "#footer",
       },
     };
+  },
+  mounted() {
+    var controller = new ScrollMagic.Controller();
+    if (this.$mq === "lg") {
+      new ScrollMagic.Scene({
+        triggerElement: "#tech_trigger",
+        triggerHook: 0.62,
+      })
+        .on("enter leave", this.add_to_ind)
+        .addTo(controller);
+      this.$nextTick(() => {
+        new ScrollMagic.Scene({
+          triggerElement: "#project_trigger",
+          triggerHook: 0.49,
+          offset: 250,
+        })
+          .on("enter leave", this.add_to_ind)
+          .addTo(controller);
+      });
+    } else {
+      new ScrollMagic.Scene({
+        triggerElement: "#about_me_container",
+        triggerHook: 1,
+        offset: 50,
+      })
+        .setClassToggle(".up", "appear")
+        .addTo(controller);
+      new ScrollMagic.Scene({
+        triggerElement: "#about_me_container",
+        triggerHook: 0,
+        offset: -10,
+      })
+        .on("enter leave", this.add_to_ind)
+        .addTo(controller);
+      new ScrollMagic.Scene({
+        triggerElement: "#avatar_trigger",
+        triggerHook: 0,
+        offset: -10,
+      })
+        .on("enter leave", this.add_to_ind)
+        .addTo(controller);
+      new ScrollMagic.Scene({
+        triggerElement: "#project_trigger",
+        triggerHook: 0,
+        offset: -10,
+      })
+        .on("enter leave", this.add_to_ind)
+        .addTo(controller);
+    }
+    new ScrollMagic.Scene({
+      triggerElement: "#footer",
+      triggerHook: 0,
+      offset: -20,
+    })
+      .setClassToggle(".down", "hide")
+      .on("enter leave", this.add_to_ind)
+      .addTo(controller);
   },
 };
 </script>
@@ -90,18 +163,32 @@ export default {
 .nav_arrow {
   position: absolute;
   left: calc(50vw - 12px);
-  opacity: 0.5;
+  opacity: 0.7;
   transform: scale(1);
+  transition: all ease-in-out 0.1s;
   text-decoration: none;
 }
-.nav_arrow.down{
+.nav_arrow.up {
+  opacity: 0;
+  pointer-events: none;
+}
+.nav_arrow.up.appear {
+  opacity: 0.7;
+  pointer-events: auto;
+  top: 10px;
+}
+.nav_arrow.down {
   bottom: 10px;
 }
-.nav_arrow:hover {
-  opacity: 1;
-  transform: scale(1.4);
+.nav_arrow.down.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 @media screen and (min-width: 1000px) {
+  .nav_arrow:hover {
+    opacity: 0.5;
+    transform: scale(1.4);
+  }
   #about_me {
     grid-column: span 2;
   }

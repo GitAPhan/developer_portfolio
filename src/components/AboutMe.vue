@@ -1,5 +1,5 @@
 <template>
-  <div class="about_me_container">
+  <div class="about_me_container" id="about_me_container">
     <section class="about_me">
       <!-- <figure>
                 <h1>"Take risks now and do something bold. You won't regret it"</h1>
