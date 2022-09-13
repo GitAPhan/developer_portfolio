@@ -30,73 +30,73 @@
         >
           <v-carousel-item v-if="project.id === 1">
             <v-img
-              contain
-              width="100%"
+              :contain="true"
               height="100%"
+              width="100%"
               src="@/assets/scavenger-large.gif"
             />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 2">
             <v-img
-              contain
-              width="100%"
+              :contain="true"
               height="100%"
+              width="100%"
               src="@/assets/okpizza-mobile-large.gif"
             />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 2">
             <v-img
-              contain
-              width="100%"
+              :contain="true"
               height="100%"
+              width="100%"
               src="@/assets/okpizza-tablet-large.gif"
             />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 2">
             <v-img
-              contain
-              width="100%"
+              :contain="true"
               height="100%"
+              width="100%"
               src="@/assets/okpizza-large.png"
             />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 3">
             <v-img
-              contain
-              width="100%"
+              :contain="true"
               height="100%"
+              width="100%"
               src="@/assets/tweeter.gif"
             />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 3">
             <v-img
-              contain
-              width="100%"
+              :contain="true"
               height="100%"
+              width="100%"
               src="@/assets/Tweeter-database-relations.png"
             />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 4">
             <v-img
-              contain
-              width="100%"
+              :contain="true"
               height="100%"
+              width="100%"
               src="@/assets/battlemon-0-large.gif"
             />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 4">
             <v-img
-              contain
-              width="100%"
+              :contain="true"
               height="100%"
+              width="100%"
               src="@/assets/battlemon-1-large.gif"
             />
           </v-carousel-item>
           <v-carousel-item v-if="project.id === 4">
             <v-img
-              contain
-              width="100%"
+              :contain="true"
               height="100%"
+              width="100%"
               src="@/assets/battlemon-2-large.gif"
             />
           </v-carousel-item>
@@ -181,6 +181,9 @@ export default {
   z-index: 9;
 }
 .top_row {
+  .v-img {
+    
+  }
   margin: 5% 0;
 }
 .mid_row {
