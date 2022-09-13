@@ -4,8 +4,8 @@
       class="d-flex justify-center align-center header"
       v-if="$mq === 'lg'"
       absolute
-      color="rbga(0, 0, 0, 0.0)"
-      dark
+      color="#00000000"
+      elevation="0"
       scroll-target="#scrolling-techniques-4"
     >
       <a href="#about_me">about me</a>
@@ -137,7 +137,7 @@ export default {
     new ScrollMagic.Scene({
       triggerElement: "#footer",
       triggerHook: 0,
-      offset: -20,
+      offset: -50,
     })
       .setClassToggle(".down", "hide")
       .on("enter leave", this.add_to_ind)

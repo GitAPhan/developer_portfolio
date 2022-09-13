@@ -1,6 +1,6 @@
 <template>
   <div id="project_trigger" class="projects">
-    <h1 class="projects_title" @click="change_project_view">Projects:</h1>
+    <h1 class="projects_title" @click="model_value">Projects:</h1>
     <project-carousel
       class="highlighted_project"
       v-if="model != null"
@@ -142,7 +142,6 @@ export default {
           icon: "mdi-pokemon-go",
         },
       ],
-      window_height: window.innerHeight,
       offset_trigger: window.innerHeight > 900 ? -50 - ((window.innerHeight - 900) / 2): -50,
     };
   },
@@ -277,12 +276,12 @@ export default {
     }
   }
   .project_display {
-    // display: none;
+    display: none;
     opacity: 0;
     pointer-events: none;
   }
   .project_display.appear {
-    // display: block;
+    display: grid;
     opacity: 1;
   }
   .appear.disappear {

@@ -1,17 +1,18 @@
 <template>
   <div class="about_me_container" id="about_me_container">
     <section class="about_me">
-      <!-- <figure>
-                <h1>"Take risks now and do something bold. You won't regret it"</h1>
-                <figcaption>- Elon Musk</figcaption>
-            </figure> -->
-      <p>I'm a recent graduate of Innotech College from their Full-Stack Development Diploma program. Thanks to them, I got a taste of what the development world looks like and I was
-        absolutely hooked!</p>
       <p>
-        Since graduating from a coding bootcamp and receiving my Full-Stack
-          Development Diploma. I have played around with building different
-          applications using JavaScript, VueJS, Python, Flask and MySQL just to
-          name a few.
+        A multi-talented human with experiences gathered from a wide range of
+        industries. You can call me a designer, an entrepreneur, an advisor, a
+        developer, and much much more. Although, at the end of day, I like to
+        think of myself as a problem solver.
+      </p>
+      <p>
+        Fueled by my ever expanding curiosity and passionate persistence, I'm
+        easily inspired and more than willing to follow my fascinations wherever
+        they may take me. I am enthusiastic, expressive, and never satified to
+        just come up with ideas. Usually giving into my impulsive needs to act
+        upon them.
       </p>
     </section>
   </div>
@@ -28,7 +29,7 @@ export default {
   display: grid;
   color: var(--v-primary);
   row-gap: 10px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   max-width: 450px;
 
   > p:nth-child(2) {
@@ -41,7 +42,7 @@ export default {
   display: grid;
   place-items: center;
   background-color: var(--v-secondary);
-  padding: 10%;
+  padding: 5% 10%;
 }
 
 @media screen and (min-width: 1000px) {

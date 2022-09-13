@@ -41,13 +41,11 @@ export default {
   position: relative;
   height: 100%;
   display: grid;
-  // overflow: hidden;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
 }
 .soft_logo {
   display: grid;
   align-items: center;
-  // padding: 10px 0px;
   > .contact_logo {
     max-width: 60%;
     max-height: 60%;
@@ -70,8 +68,9 @@ export default {
     width: 80%;
     place-self: center;
     .soft_skills {
+      max-width: 80%;
       grid-auto-flow: row;
-      justify-self: end;
+      justify-self: start;
     }
     > .contact_logo {
       max-width: 100%;
@@ -86,12 +85,10 @@ export default {
   .contact_me {
     width: 80%;
     margin: auto;
-    // margin-top: 10%;
   }
 }
 @media screen and (min-width: 1000px) {
   .contact_hero {
-    // transform: translateY(-100vh);
     align-self: start;
     margin-top: 7px;
     width: 75%;
@@ -117,10 +114,7 @@ export default {
     }
   }
   .contact_right {
-    // display: grid;
-    // align-self: center;
     height: 70%;
-    // align-items: center;
     justify-self: start;
     justify-items: start;
     :nth-child(1) {

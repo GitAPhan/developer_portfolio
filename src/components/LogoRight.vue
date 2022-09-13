@@ -22,6 +22,11 @@ export default {
     AboutMe,
   },
   name: "logo-right",
+  data() {
+    return {
+      offset_trigger: window.innerHeight > 900 ? 50 + ((window.innerHeight - 900) / 2): 100,
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       // build scene only in lg screen mode
@@ -29,8 +34,8 @@ export default {
         var controller = new ScrollMagic.Controller();
         new ScrollMagic.Scene({
           triggerElement: "#footer",
-          offset: 100,
           triggerHook: 1,
+          offset: this.offset_trigger,
         })
           .setClassToggle(".quote", "hide")
           .addTo(controller);
